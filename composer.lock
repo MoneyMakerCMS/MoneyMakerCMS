@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17305a6dd494a69fabd54bf6e8fffe9d",
-    "content-hash": "8590ceeb93631fa1815928de23258a58",
+    "hash": "98ddb0074aef7245fb86ea39ed808c62",
+    "content-hash": "aaaac6d4b7657b6b366981b84c64827b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -312,12 +312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "794681955c0592255e02c0cce260f960243d627e"
+                "reference": "a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/794681955c0592255e02c0cce260f960243d627e",
-                "reference": "794681955c0592255e02c0cce260f960243d627e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7",
+                "reference": "a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7",
                 "shasum": ""
             },
             "require": {
@@ -431,7 +431,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-16 01:40:12"
+            "time": "2016-08-16 18:41:23"
         },
         {
             "name": "league/flysystem",
@@ -973,6 +973,63 @@
                 "uuid"
             ],
             "time": "2016-08-02 18:39:32"
+        },
+        {
+            "name": "silber/bouncer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JosephSilber/bouncer.git",
+                "reference": "8a4a5865f5f05c06e59db2fba7efce89ad7c054f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/8a4a5865f5f05c06e59db2fba7efce89ad7c054f",
+                "reference": "8a4a5865f5f05c06e59db2fba7efce89ad7c054f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.1.20|5.2.*|5.3.*",
+                "illuminate/container": "~5.1.20|5.2.*|5.3.*",
+                "illuminate/contracts": "~5.1.20|5.2.*|5.3.*",
+                "illuminate/database": "~5.1.20|5.2.*|5.3.*"
+            },
+            "require-dev": {
+                "illuminate/cache": "~5.1.20|5.2.*|5.3.*",
+                "illuminate/console": "~5.1.20|5.2.*|5.3.*",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^4.8"
+            },
+            "suggest": {
+                "illuminate/cache": "Allows caching the bouncer's database queries",
+                "illuminate/console": "Allows running registered bouncer seeders via artisan"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Silber\\Bouncer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Silber",
+                    "email": "contact@josephsilber.com"
+                }
+            ],
+            "description": "Bouncer handles roles and abilities for Laravel's ACL.",
+            "keywords": [
+                "abilities",
+                "acl",
+                "capabilities",
+                "laravel",
+                "permissions",
+                "roles"
+            ],
+            "time": "2016-08-16 11:39:33"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3425,7 +3482,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "silber/bouncer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
