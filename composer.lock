@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98ddb0074aef7245fb86ea39ed808c62",
-    "content-hash": "aaaac6d4b7657b6b366981b84c64827b",
+    "hash": "a1fb8d5950cde709139e76167b6c9210",
+    "content-hash": "95ac16b466ca08c0562f2f58e1dca849",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -308,16 +308,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.3.x-dev",
+            "version": "v5.3.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7"
+                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7",
-                "reference": "a0fb490cff6f1f39b480fa8a7fffede1b8f29ea7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a",
+                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a",
                 "shasum": ""
             },
             "require": {
@@ -431,7 +431,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-16 18:41:23"
+            "time": "2016-08-17 15:05:00"
         },
         {
             "name": "league/flysystem",
@@ -975,17 +975,90 @@
             "time": "2016-08-02 18:39:32"
         },
         {
+            "name": "rinvex/repository",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/repository.git",
+                "reference": "32e808bc19d2ae322f62027a75e0f9cc1474ef2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/repository/zipball/32e808bc19d2ae322f62027a75e0f9cc1474ef2b",
+                "reference": "32e808bc19d2ae322f62027a75e0f9cc1474ef2b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.1.*|5.2.*|5.3.*",
+                "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+                "illuminate/database": "5.1.*|5.2.*|5.3.*",
+                "illuminate/events": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "illuminate/pagination": "Required to paginate the result set."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rinvex\\Repository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous PHP Community",
+                    "homepage": "https://github.com/rinvex/repository/contributors"
+                }
+            ],
+            "description": "Rinvex Repository is a simple, intuitive, and smart implementation of Active Repository with extremely flexible & granular caching system for Laravel, used to abstract the data layer, making applications more flexible to maintain.",
+            "homepage": "https://rinvex.com/marketplace/rinvex-repository/",
+            "keywords": [
+                "cache",
+                "contract",
+                "eloquent",
+                "granular",
+                "interface",
+                "intuitive",
+                "laravel",
+                "pattern",
+                "repository",
+                "rinvex"
+            ],
+            "time": "2016-08-05 22:40:10"
+        },
+        {
             "name": "silber/bouncer",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephSilber/bouncer.git",
-                "reference": "8a4a5865f5f05c06e59db2fba7efce89ad7c054f"
+                "reference": "27835b16f24ed8d6c7fb4efabe94f678c4d0f380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/8a4a5865f5f05c06e59db2fba7efce89ad7c054f",
-                "reference": "8a4a5865f5f05c06e59db2fba7efce89ad7c054f",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/27835b16f24ed8d6c7fb4efabe94f678c4d0f380",
+                "reference": "27835b16f24ed8d6c7fb4efabe94f678c4d0f380",
                 "shasum": ""
             },
             "require": {
@@ -1029,7 +1102,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-16 11:39:33"
+            "time": "2016-08-19 03:00:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2623,16 +2696,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.0",
+            "version": "5.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b"
+                "reference": "46ec2d1522ae8c9a12aca6b7650e0be78bbb0502"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b",
-                "reference": "c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/46ec2d1522ae8c9a12aca6b7650e0be78bbb0502",
+                "reference": "46ec2d1522ae8c9a12aca6b7650e0be78bbb0502",
                 "shasum": ""
             },
             "require": {
@@ -2697,20 +2770,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-05 04:49:02"
+            "time": "2016-08-18 11:10:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "b13d0d9426ced06958bd32104653526a6c998a52"
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/b13d0d9426ced06958bd32104653526a6c998a52",
-                "reference": "b13d0d9426ced06958bd32104653526a6c998a52",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4e83390f64e7ce04fcaec2ce95cd72823b431d19",
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19",
                 "shasum": ""
             },
             "require": {
@@ -2756,7 +2829,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-06-12 07:37:26"
+            "time": "2016-08-17 09:33:51"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -2921,23 +2994,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716"
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4e8f0da10ac5802913afc151413bc8c53b6c2716",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/be2c607e43ce4c89ecd60e75c6a85c126e754aea",
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -2967,7 +3040,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-05-17 03:18:57"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",

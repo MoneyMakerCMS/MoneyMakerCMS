@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "silber/bouncer": "dev-master#8a4a5865f5f05c06e59db2fba7efce89ad7c054f"
+        "rinvex/repository": "2.0.*",
+        "silber/bouncer": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
