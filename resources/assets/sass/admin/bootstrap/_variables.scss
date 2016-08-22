@@ -60,11 +60,11 @@ $brand-inverse:             $gray-dark !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-flex:               false !default;
+$enable-flex:               true !default;
 $enable-rounded:            true !default;
-$enable-shadows:            false !default;
-$enable-gradients:          false !default;
-$enable-transitions:        false !default;
+$enable-shadows:            true !default;
+$enable-gradients:          true !default;
+$enable-transitions:        true !default;
 $enable-hover-media-query:  false !default;
 $enable-grid-classes:       true !default;
 $enable-print-styles:       true !default;
