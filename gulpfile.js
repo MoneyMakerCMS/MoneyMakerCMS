@@ -23,7 +23,7 @@ elixir(mix => {
 */
 
 elixir(mix => {
-    mix.sass('admin/app.scss', 'public/stylesheets/admin/styles.css')
+    mix.sass('admin/bootstrap/bootstrap.scss', 'public/stylesheets/admin/styles.css')
 });
 
 /*
