@@ -1168,12 +1168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephSilber/bouncer.git",
-                "reference": "27835b16f24ed8d6c7fb4efabe94f678c4d0f380"
+                "reference": "31383e862f0039478346ea39fe235a4537988ca6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/27835b16f24ed8d6c7fb4efabe94f678c4d0f380",
-                "reference": "27835b16f24ed8d6c7fb4efabe94f678c4d0f380",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/31383e862f0039478346ea39fe235a4537988ca6",
+                "reference": "31383e862f0039478346ea39fe235a4537988ca6",
                 "shasum": ""
             },
             "require": {
@@ -1217,7 +1217,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-19 03:00:14"
+            "time": "2016-08-22 12:36:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
