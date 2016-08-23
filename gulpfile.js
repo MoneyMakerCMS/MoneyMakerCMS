@@ -24,6 +24,14 @@ elixir(mix => {
 
 elixir(mix => {
     mix.sass('admin/bootstrap/bootstrap.scss', 'public/stylesheets/admin/styles.css')
+        .webpack([
+            'admin/app.js',
+        ], 'public/javascript/admin/app.js')
+
+		.scripts([
+            './node_modules/jquery/dist/jquery.js',
+            './node_modules/bootstrap/dist/js/bootstrap.js'
+        ], 'public/javascript/admin/vendor.js')
 });
 
 /*
