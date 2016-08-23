@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "rinvex/repository": "2.0.*",
         "silber/bouncer": "dev-master",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "barryvdh/laravel-debugbar": "^2.2",
+        "yajra/laravel-datatables-oracle": "~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
