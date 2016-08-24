@@ -9,7 +9,7 @@
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "dev-master",
+            "version": "V2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
@@ -217,30 +217,46 @@
         },
         {
             "name": "dompdf/dompdf",
-            "version": "v0.6.2",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dompdf/dompdf.git",
-                "reference": "cc06008f75262510ee135b8cbb14e333a309f651"
+                "reference": "5c98652b1a5beb7e3cc8ec35419b2828dd63ab14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/cc06008f75262510ee135b8cbb14e333a309f651",
-                "reference": "cc06008f75262510ee135b8cbb14e333a309f651",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/5c98652b1a5beb7e3cc8ec35419b2828dd63ab14",
+                "reference": "5c98652b1a5beb7e3cc8ec35419b2828dd63ab14",
                 "shasum": ""
             },
             "require": {
-                "phenx/php-font-lib": "0.2.*"
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "phenx/php-font-lib": "0.4.*",
+                "phenx/php-svg-lib": "0.1.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
             "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
                 "classmap": [
-                    "include/"
+                    "lib/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "LGPL-2.1"
             ],
             "authors": [
                 {
@@ -250,11 +266,15 @@
                 {
                     "name": "Brian Sweeney",
                     "email": "eclecticgeek@gmail.com"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com"
                 }
             ],
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
-            "time": "2015-12-07 04:07:13"
+            "time": "2016-05-11 00:36:29"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -403,16 +423,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.0-RC1",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a"
+                "reference": "1268b6249358a11d430f8b97ff820afdf099f103"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a",
-                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1268b6249358a11d430f8b97ff820afdf099f103",
+                "reference": "1268b6249358a11d430f8b97ff820afdf099f103",
                 "shasum": ""
             },
             "require": {
@@ -526,7 +546,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-17 15:05:00"
+            "time": "2016-08-24 09:54:18"
         },
         {
             "name": "laravelcollective/html",
@@ -1127,27 +1147,27 @@
         },
         {
             "name": "phenx/php-font-lib",
-            "version": "0.2.2",
+            "version": "0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhenX/php-font-lib.git",
-                "reference": "c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82"
+                "reference": "b8af0cacdc3cbf1e41a586fcb78f506f4121a088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82",
-                "reference": "c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/b8af0cacdc3cbf1e41a586fcb78f506f4121a088",
+                "reference": "b8af0cacdc3cbf1e41a586fcb78f506f4121a088",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "classes/"
-                ]
+                "psr-0": {
+                    "FontLib\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "LGPL-3.0"
             ],
             "authors": [
                 {
@@ -1157,7 +1177,41 @@
             ],
             "description": "A library to read, parse, export and make subsets of different types of font files.",
             "homepage": "https://github.com/PhenX/php-font-lib",
-            "time": "2014-02-01 15:22:28"
+            "time": "2015-05-06 20:02:39"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-svg-lib.git",
+                "reference": "b419766515b3426c6da74b0e29e93d71c4f17099"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/b419766515b3426c6da74b0e29e93d71c4f17099",
+                "reference": "b419766515b3426c6da74b0e29e93d71c4f17099",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Svg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "time": "2015-05-06 18:49:49"
         },
         {
             "name": "phpoffice/phpexcel",
@@ -1485,12 +1539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephSilber/bouncer.git",
-                "reference": "31383e862f0039478346ea39fe235a4537988ca6"
+                "reference": "ea3d1a085db4909adc16414167dd5315fe5d96a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/31383e862f0039478346ea39fe235a4537988ca6",
-                "reference": "31383e862f0039478346ea39fe235a4537988ca6",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/ea3d1a085db4909adc16414167dd5315fe5d96a1",
+                "reference": "ea3d1a085db4909adc16414167dd5315fe5d96a1",
                 "shasum": ""
             },
             "require": {
@@ -1534,7 +1588,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-22 12:36:14"
+            "time": "2016-08-23 14:02:18"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2520,20 +2574,20 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v6.17.0",
+            "version": "v6.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "66186a1275156b922e5968a4d65bbc5966bbee5d"
+                "reference": "ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/66186a1275156b922e5968a4d65bbc5966bbee5d",
-                "reference": "66186a1275156b922e5968a4d65bbc5966bbee5d",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01",
+                "reference": "ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01",
                 "shasum": ""
             },
             "require": {
-                "dompdf/dompdf": "^0.6.1",
+                "dompdf/dompdf": "^0.7",
                 "illuminate/database": "~5.0",
                 "illuminate/filesystem": "~5.0",
                 "illuminate/http": "~5.0",
@@ -2576,7 +2630,7 @@
                 "laravel4",
                 "laravel5"
             ],
-            "time": "2016-08-10 00:31:22"
+            "time": "2016-08-23 05:51:56"
         }
     ],
     "packages-dev": [
