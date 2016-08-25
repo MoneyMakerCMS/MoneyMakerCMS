@@ -11,7 +11,7 @@ return [
     | https://github.com/laravel/framework/blob/d2a41e4/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php#L104-L114
     |
     */
-   
+
     'resource_nouns' => ['view', 'create', 'update', 'delete'],
 
 
@@ -22,10 +22,10 @@ return [
     |
     | The application models that you want to create ablities for.
     | All models listed in the array will have resouce ablites created
-    | 
+    |
     |
     */
-   
+
     'entities'       => [App\Models\Access\User::class],
 
     /*
@@ -34,11 +34,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | These are the default application roles that will be created.
-    | Super Admin role will have 'god mode' access and will be 
+    | Super Admin role will have 'god mode' access and will be
     | bypass all checks, Admin will by default be given all
     | permissions when seeded
     |
     */
-   
+
     'roles'          => ['super admin', 'admin', 'user'],
 ];
