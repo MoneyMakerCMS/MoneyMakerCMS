@@ -4,8 +4,7 @@ use Illuminate\Database\Seeder;
 
 class AccessRolesPermissionsSeeder extends Seeder
 {
-   
-    protected $abilities = ['view', 'create', 'update', 'delete', ];
+    protected $abilities = ['view', 'create', 'update', 'delete'];
 
     /**
      * Run the database seeds.
@@ -21,7 +20,7 @@ class AccessRolesPermissionsSeeder extends Seeder
         $this->createRoles();
         $this->seedAbilities();
         $this->assignAbilitiesToRoles();
-        
+
         if (DB::connection()->getDriverName() == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         }
@@ -33,7 +32,7 @@ class AccessRolesPermissionsSeeder extends Seeder
 
         foreach (config('core.roles') as $role) {
             Bouncer::role()->create([
-                'name' => str_slug($role),
+                'name'  => str_slug($role),
                 'title' => ucfirst($role),
             ]);
         }
@@ -47,7 +46,7 @@ class AccessRolesPermissionsSeeder extends Seeder
                 $title = str_plural(class_basename($entity));
                 $ability_name = ucfirst($resource_noun);
                 Bouncer::ability()->createForModel($entity, [
-                    'name' => $resource_noun,
+                    'name'  => $resource_noun,
                     'title' => "{$ability_name} {$title} ",
                 ]);
             }
@@ -57,10 +56,10 @@ class AccessRolesPermissionsSeeder extends Seeder
     protected function assignAbilitiesToRoles()
     {
         Bouncer::allow('admin')->to([
-            'name' => '*',
+            'name'  => '*',
             'title' => 'God Mode',
         ], '*');
-        
+
         foreach (Bouncer::ability()->get() as $ability) {
             Bouncer::allow('admin')->to($ability);
         }
