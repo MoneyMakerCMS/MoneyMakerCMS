@@ -55,7 +55,7 @@ class AccessRolesPermissionsSeeder extends Seeder
 
     protected function assignAbilitiesToRoles()
     {
-        Bouncer::allow('admin')->to([
+        Bouncer::allow('super-admin')->to([
             'name'  => '*',
             'title' => 'God Mode',
         ], '*');
