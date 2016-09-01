@@ -423,16 +423,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.1",
+            "version": "v5.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1268b6249358a11d430f8b97ff820afdf099f103"
+                "reference": "7159ffbadc79558a42ece2cdd1ec2e7e13105b5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1268b6249358a11d430f8b97ff820afdf099f103",
-                "reference": "1268b6249358a11d430f8b97ff820afdf099f103",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7159ffbadc79558a42ece2cdd1ec2e7e13105b5d",
+                "reference": "7159ffbadc79558a42ece2cdd1ec2e7e13105b5d",
                 "shasum": ""
             },
             "require": {
@@ -546,39 +546,36 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-24 09:54:18"
+            "time": "2016-08-26 21:40:26"
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.0.5",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "f1eddc7a7834854a3cb147a7601547394d345213"
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/f1eddc7a7834854a3cb147a7601547394d345213",
-                "reference": "f1eddc7a7834854a3cb147a7601547394d345213",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/961ce141c16c6b085128f209496c26efd3e681ca",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca",
                 "shasum": ""
             },
             "require": {
-                "illuminate/http": "~5.1",
-                "illuminate/routing": "~5.1",
-                "illuminate/session": "~5.1",
-                "illuminate/support": "~5.1",
-                "php": ">=5.4.0"
+                "illuminate/http": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/session": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0"
+                "illuminate/database": "5.3.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Collective\\Html\\": "src/"
@@ -601,7 +598,9 @@
                     "email": "adam@laravelcollective.com"
                 }
             ],
-            "time": "2015-05-21 16:45:14"
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-08-27 23:52:43"
         },
         {
             "name": "league/flysystem",
@@ -688,16 +687,16 @@
         },
         {
             "name": "league/fractal",
-            "version": "0.13.0",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "3caeefbad51bce7a06947321938128512f42346c"
+                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/3caeefbad51bce7a06947321938128512f42346c",
-                "reference": "3caeefbad51bce7a06947321938128512f42346c",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/56ad8933fbb40328ca3321c84143b2c16186eebf",
+                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf",
                 "shasum": ""
             },
             "require": {
@@ -747,48 +746,48 @@
                 "league",
                 "rest"
             ],
-            "time": "2015-10-07 14:48:58"
+            "time": "2016-07-21 09:56:14"
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v2.0.9",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "bd9428da19fb3de9bbdd80f18f31b744485dc250"
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/bd9428da19fb3de9bbdd80f18f31b744485dc250",
-                "reference": "bd9428da19fb3de9bbdd80f18f31b744485dc250",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/b5c91156f6bd29f68f4f2c51186faae4310a5a68",
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68",
                 "shasum": ""
             },
             "require": {
-                "illuminate/cache": "~5.0|~5.1",
-                "illuminate/config": "~5.0|~5.1",
-                "illuminate/filesystem": "~5.0|~5.1",
-                "illuminate/support": "~5.0|~5.1",
+                "illuminate/cache": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*",
                 "nesbot/carbon": "~1.0",
-                "php": ">=5.3.0",
-                "phpoffice/phpexcel": "~1.8.0",
+                "php": ">=5.5",
+                "phpoffice/phpexcel": "1.8.*",
                 "tijsverkoyen/css-to-inline-styles": "~1.5"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
-                "orchestra/testbench": "~3.0.0",
-                "phpseclib/phpseclib": ">=0.3.7",
+                "orchestra/testbench": "3.1.*",
+                "phpseclib/phpseclib": "~1.0",
                 "phpunit/phpunit": "~4.0"
             },
             "suggest": {
-                "illuminate/http": "~5.0|~5.1",
-                "illuminate/routing": "~5.0|~5.1",
-                "illuminate/view": "~5.0|~5.1"
+                "illuminate/http": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/queue": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/routing": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/view": "5.0.*|5.1.*|5.2.*|5.3.*"
             },
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/Maatwebsite/Excel",
-                    "tests/TestCase.php"
+                    "src/Maatwebsite/Excel"
                 ],
                 "psr-0": {
                     "Maatwebsite\\Excel\\": "src/"
@@ -814,7 +813,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2015-10-26 10:15:37"
+            "time": "2016-08-28 20:25:51"
         },
         {
             "name": "maximebf/debugbar",
@@ -1539,12 +1538,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephSilber/bouncer.git",
-                "reference": "ea3d1a085db4909adc16414167dd5315fe5d96a1"
+                "reference": "c4e28f75ecf6d076fb0cc2d2df6660f6644994fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/ea3d1a085db4909adc16414167dd5315fe5d96a1",
-                "reference": "ea3d1a085db4909adc16414167dd5315fe5d96a1",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/c4e28f75ecf6d076fb0cc2d2df6660f6644994fb",
+                "reference": "c4e28f75ecf6d076fb0cc2d2df6660f6644994fb",
                 "shasum": ""
             },
             "require": {
@@ -1584,11 +1583,12 @@
                 "abilities",
                 "acl",
                 "capabilities",
+                "eloquent",
                 "laravel",
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-23 14:02:18"
+            "time": "2016-08-26 20:59:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2574,16 +2574,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v6.17.1",
+            "version": "v6.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01"
+                "reference": "4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01",
-                "reference": "ebf51c74bbc0efcb5904fa146da6a5a4d6b82a01",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746",
+                "reference": "4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746",
                 "shasum": ""
             },
             "require": {
@@ -2630,7 +2630,7 @@
                 "laravel4",
                 "laravel5"
             ],
-            "time": "2016-08-23 05:51:56"
+            "time": "2016-08-25 15:57:15"
         }
     ],
     "packages-dev": [
@@ -3342,16 +3342,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.2",
+            "version": "5.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "46ec2d1522ae8c9a12aca6b7650e0be78bbb0502"
+                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/46ec2d1522ae8c9a12aca6b7650e0be78bbb0502",
-                "reference": "46ec2d1522ae8c9a12aca6b7650e0be78bbb0502",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3e6e88e56c912133de6e99b87728cca7ed70c5f5",
+                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5",
                 "shasum": ""
             },
             "require": {
@@ -3416,20 +3416,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-18 11:10:44"
+            "time": "2016-08-26 07:11:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.2.4",
+            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19"
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4e83390f64e7ce04fcaec2ce95cd72823b431d19",
-                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
                 "shasum": ""
             },
             "require": {
@@ -3475,7 +3475,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-08-17 09:33:51"
+            "time": "2016-08-26 05:51:59"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
