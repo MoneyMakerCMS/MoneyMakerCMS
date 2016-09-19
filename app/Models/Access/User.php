@@ -2,13 +2,14 @@
 
 namespace App\Models\Access;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use App\Models\Traits\Render\TableActionsRenderTraite;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRolesAndAbilities;
+    use Notifiable, HasRolesAndAbilities, TableActionsRenderTraite;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +31,7 @@ class User extends Authenticatable
 
     protected $searchableColumns = ['name', 'email'];
   
+    protected $adminRouteString = 'admin.users.';
 
     public function getTableRoleAttribute()
     {
