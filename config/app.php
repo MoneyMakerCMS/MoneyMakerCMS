@@ -184,6 +184,8 @@ return [
         App\Providers\RepositoriesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        AdamWathan\BootForms\BootFormsServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
 
     ],
 
@@ -234,7 +236,8 @@ return [
         'Form'         => Collective\Html\FormFacade::class,
         'Html'         => Collective\Html\HtmlFacade::class,
         'Bouncer'      => Silber\Bouncer\BouncerFacade::class,
-
+        'BootForm'     => AdamWathan\BootForms\Facades\BootForm::class,
+        'Active'       => HieuLe\Active\Facades\Active::class,
     ],
 
 ];

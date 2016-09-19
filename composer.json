@@ -10,7 +10,10 @@
         "rinvex/repository": "2.0.*",
         "silber/bouncer": "dev-master",
         "barryvdh/laravel-debugbar": "^2.2",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "adamwathan/bootforms": "^0.8.1",
+        "creativeorange/gravatar": "~1.0",
+        "hieu-le/active": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -29,7 +32,8 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "tests/Traits/"
         ]
     },
     "scripts": {
