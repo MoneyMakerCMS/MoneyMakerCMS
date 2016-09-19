@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $searchableColumns = ['name', 'email'];
+  
+
+    public function getTableRoleAttribute()
+    {
+        return implode(',', $this->roles->pluck('title')->toArray());
+    }
 }
