@@ -54,10 +54,11 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                               {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu" role="menu">
+                                @allowed('view-admin')<li><a href="{{url(config('core.admin_uri'))}}">Admin</a></li>@endif
+                                @allowed('view-dashboard')<li><a href="{{url('/home')}}">Dashboard</a></li>@endif
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
