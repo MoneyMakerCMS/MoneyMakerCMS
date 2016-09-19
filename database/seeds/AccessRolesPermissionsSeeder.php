@@ -26,6 +26,9 @@ class AccessRolesPermissionsSeeder extends Seeder
         }
     }
 
+
+
+
     protected function createRoles()
     {
         Bouncer::role()->truncate();
@@ -43,7 +46,9 @@ class AccessRolesPermissionsSeeder extends Seeder
         Bouncer::ability()->truncate();
         foreach (config('core.entities') as $entity) {
             foreach (config('core.resource_nouns') as $resource_noun) {
-                $title = str_plural(class_basename($entity));
+
+                $title = str_plural(collect(explode( "\\", $entity))->last());
+                
                 $ability_name = ucfirst($resource_noun);
                 Bouncer::ability()->createForModel($entity, [
                     'name'  => $resource_noun,
