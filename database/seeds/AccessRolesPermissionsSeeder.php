@@ -52,7 +52,7 @@ class AccessRolesPermissionsSeeder extends Seeder
                 $ability_name = ucfirst($resource_noun);
                 Bouncer::ability()->createForModel($entity, [
                     'name'  => $resource_noun,
-                    'title' => "{$ability_name} {$title} ",
+                    'title' => "{$ability_name} {$title}",
                 ]);
             }
         }
