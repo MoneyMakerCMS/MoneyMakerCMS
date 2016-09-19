@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace App\Repositories\User;
 
 use Bouncer;
-use Yajra\Datatables\Facades\Datatables;
 use Illuminate\Contracts\Container\Container;
 use Rinvex\Repository\Repositories\EloquentRepository;
+use Yajra\Datatables\Facades\Datatables;
 
 class UserRepository extends EloquentRepository
 {
@@ -20,17 +20,18 @@ class UserRepository extends EloquentRepository
     {
         Datatables::of($this->createModel()->query())
             ->addColumn('roles', function ($u) {
-                
                 if ($u->roles->count()) {
-                    return implode(",", $u->roles->pluck('title')->toArray());
+                    return implode(',', $u->roles->pluck('title')->toArray());
                 }
+
                 return 'none';
             })
             ->addColumn('permissions', function ($u) {
                 if ($u->getAbilities()->count()) {
-                    return implode(",", $u->getAbilities()->pluck('title')->toArray());
+                    return implode(',', $u->getAbilities()->pluck('title')->toArray());
                 }
-               return 'none';
+
+                return 'none';
             })
             ->addColumn('actions', function ($user) {
                 return $user->action_buttons;
@@ -41,27 +42,27 @@ class UserRepository extends EloquentRepository
     public function getCreateData()
     {
         return [
-            'user' => $this->createModel(),
+            'user'  => $this->createModel(),
             'roles' => Bouncer::role()->all(),
         ];
     }
-    
+
     public function getEditData($id)
     {
         return [
-            'user' => $this->find($id),
+            'user'  => $this->find($id),
             'roles' => Bouncer::role()->all(),
         ];
     }
 
     public function store($id, $request)
     {
-    	// dd($request->roles);
+        // dd($request->roles);
         $data = [
-            'name' => $request->name,
+            'name'  => $request->name,
             'email' => $request->email,
         ];
-        
+
         if (request()->password) {
             $data['password'] = bcrypt($request->password);
         }
@@ -70,7 +71,7 @@ class UserRepository extends EloquentRepository
         } else {
             $entry = $this->create($data);
         }
-        
+
         list($status, $user) = $entry;
 
         if ($request->roles) {
@@ -78,7 +79,7 @@ class UserRepository extends EloquentRepository
         } else {
             $user->roles()->detach();
         }
-        
+
         Bouncer::refreshFor($user);
 
         return $user;

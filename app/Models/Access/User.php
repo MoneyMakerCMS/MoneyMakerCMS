@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
     protected $searchableColumns = ['name', 'email'];
-  
+
     protected $adminRouteString = 'admin.users.';
 
     public function getTableRoleAttribute()
