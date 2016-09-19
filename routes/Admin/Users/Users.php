@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web', 'auth'] ], function () {
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web', 'auth']], function () {
     Route::group(['prefix' => 'users', 'namespace' => 'Users'], function () {
         Route::get('/', 'UsersController@index')->name('admin.users.index');
         Route::get('/get', 'UsersController@get')->name('admin.users.get');

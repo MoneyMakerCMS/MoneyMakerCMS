@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Repositories\User\UserRepository;
-use App\Http\Requests\Admin\User\EditUserRequest;
 use App\Http\Requests\Admin\User\CreateUserRequest;
+use App\Http\Requests\Admin\User\EditUserRequest;
+use App\Repositories\User\UserRepository;
 
 class UsersController extends Controller
 {
@@ -21,11 +20,11 @@ class UsersController extends Controller
         $this->authorizeResource(User::class);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     /**
+      * Display a listing of the resource.
+      *
+      * @return \Illuminate\Http\Response
+      */
      public function index(Request $request)
      {
          return view('admin.users.index');
@@ -44,27 +43,29 @@ class UsersController extends Controller
     public function create()
     {
         $data = $this->users->getCreateData();
-        
+
         return view('admin.users.form')->with($data);
     }
 
     /**
      * Store a newly creatted resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CreateUserRequest $request)
     {
         $user = $this->users->store(null, $request);
-        
+
         return redirect()->route('admin.users.edit', [$user->id]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,21 +76,23 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $data = $this->users->getEditData($id);
-        
+
         return view('admin.users.form')->with($data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(EditUserRequest $request, $id)
@@ -102,12 +105,14 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $this->users->delete($id);
+
         return redirect()->route('admin.users.index');
     }
 }
