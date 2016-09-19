@@ -13,31 +13,52 @@ require('laravel-elixir-vue');
  |
  */
 
-elixir(mix => {
-    mix.sass('app.scss', 'public/stylesheets/frontend/styles.css')
-        .webpack('app.js', 'public/javascript/frontend/app.js');
-});
+// elixir(mix => {
+//     mix.sass('app.scss', 'public/stylesheets/frontend/styles.css')
+//         .webpack('app.js', 'public/javascript/frontend/app.js');
+// });
 
 /*
-* 
-*/
+ * 
+ */
 
 elixir(mix => {
-    mix.sass('admin/bootstrap/bootstrap.scss', 'public/stylesheets/admin/styles.css')
-        .webpack([
-            'admin/app.js',
-        ], 'public/javascript/admin/app.js')
 
-		.scripts([
-            './node_modules/jquery/dist/jquery.js',
-            './node_modules/bootstrap/dist/js/bootstrap.js'
-        ], 'public/javascript/admin/vendor.js')
+    mix.sass([
+        'admin/app.scss'
+    ], './resources/assets/css/admin/styles.css')
+
+    .styles([
+        'admin/styles.css',
+        './node_modules/admin-lte/dist/css/AdminLTE.css',
+        './node_modules/admin-lte/dist/css/skins/skin-black-light.css',
+        './node_modules/datatables.net-bs/css/dataTables.bootstrap.css'
+    ], 'public/stylesheets/admin/styles.css')
+
+    .webpack([
+        'admin/app.js',
+    ], './resources/assets/js/admin/bundle.js')
+
+    .scripts([
+        './node_modules/jquery/dist/jquery.js',
+        './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+        './node_modules/datatables.net/js/jquery.dataTables.js',
+        './node_modules/datatables.net-bs/js/dataTables.bootstrap.js',
+        'admin/bundle.js'
+    ], 'public/javascript/admin/app.js')
 });
 
-/*
-* Fonts 
-*/
 elixir(mix => {
-    mix.copy('node_modules/font-awesome/fonts', 'public/fonts/font-awesome')
+    mix.version([
+        'stylesheets/admin/styles.css',
+        'javascript/admin/app.js'
+    ]);
+});
+/*
+ * Fonts 
+ */
+elixir(mix => {
+    mix
+        .copy('node_modules/font-awesome/fonts', 'public/fonts/font-awesome')
         .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts/bootstrap')
 });
