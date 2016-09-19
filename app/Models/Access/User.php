@@ -29,7 +29,6 @@ class User extends Authenticatable
     ];
 
     protected $searchableColumns = ['name', 'email'];
-  
 
     public function getTableRoleAttribute()
     {
