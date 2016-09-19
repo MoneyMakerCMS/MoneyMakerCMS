@@ -18,17 +18,10 @@ class UserRepository extends EloquentRepository
 
     public function get()
     {
-        Datatables::of($this->createModel()->query())
+        return Datatables::of($this->createModel()->query())
             ->addColumn('roles', function ($u) {
                 if ($u->roles->count()) {
                     return implode(',', $u->roles->pluck('title')->toArray());
-                }
-
-                return 'none';
-            })
-            ->addColumn('permissions', function ($u) {
-                if ($u->getAbilities()->count()) {
-                    return implode(',', $u->getAbilities()->pluck('title')->toArray());
                 }
 
                 return 'none';
@@ -57,7 +50,6 @@ class UserRepository extends EloquentRepository
 
     public function store($id, $request)
     {
-        // dd($request->roles);
         $data = [
             'name'  => $request->name,
             'email' => $request->email,

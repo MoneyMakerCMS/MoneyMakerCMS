@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Bouncer;
+use App\Models\Access\User;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -20,7 +24,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        // $check = Bouncer::allows('view-admin', User::class);
+        // $user = Auth::user();
+        // $check = Bouncer::allows('view-admin');
+        // dd($check);
+        // dd($user->abilities()->count());
+        // $check = $user->can('view-admin', User::class);
+        // dd($check);
         return view('home');
     }
 }

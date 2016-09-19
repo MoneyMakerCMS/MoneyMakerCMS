@@ -3,6 +3,17 @@
 return [
     /*
     |--------------------------------------------------------------------------
+    | Admin URI
+    |--------------------------------------------------------------------------
+    |
+    | The Admin url that will be used to configure backend urls
+    | 
+    */
+   
+   'admin_uri' => 'admin',
+   
+   /*
+    |--------------------------------------------------------------------------
     | Nouns
     |--------------------------------------------------------------------------
     |
@@ -23,10 +34,12 @@ return [
     | The application models that you want to create ablities for.
     | All models listed in the array will have resouce ablites created
     |
-    |
     */
 
-    'entities'       => [App\Models\Access\User::class],
+    'entities'       => [
+        'App\Models\Access\User',
+        'Silber\Bouncer\Database\Role',
+    ],
 
     /*
     |--------------------------------------------------------------------------
