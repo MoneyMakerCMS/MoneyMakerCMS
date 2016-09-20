@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
+use Barryvdh\Debugbar\Middleware\Debugbar;
 use Bouncer;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Barryvdh\Debugbar\Middleware\Debugbar;
 
 class AppServiceProvider extends ServiceProvider
 {

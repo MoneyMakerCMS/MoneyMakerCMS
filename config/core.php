@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Content\Content;
 
 return [
     /*

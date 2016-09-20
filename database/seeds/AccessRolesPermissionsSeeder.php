@@ -43,12 +43,12 @@ class AccessRolesPermissionsSeeder extends Seeder
         //create view admin ability
         Bouncer::ability()->create([
             'name'  => 'view-admin',
-            'title' => "View Admin",
+            'title' => 'View Admin',
         ]);
 
         Bouncer::ability()->create([
             'name'  => 'view-dashboard',
-            'title' => "View Dashboard",
+            'title' => 'View Dashboard',
         ]);
 
         foreach (config('core.entities') as $entity) {
@@ -58,8 +58,8 @@ class AccessRolesPermissionsSeeder extends Seeder
                 $ability_name = ucfirst($resource_noun);
 
                 Bouncer::ability()->create([
-                    'name'  => $resource_noun,
-                    'title' => "{$ability_name} {$title}",
+                    'name'        => $resource_noun,
+                    'title'       => "{$ability_name} {$title}",
                     'entity_type' => $entity,
                 ]);
             }
