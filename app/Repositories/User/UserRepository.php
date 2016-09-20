@@ -13,7 +13,7 @@ class UserRepository extends EloquentRepository
     {
         $this->setContainer($container)
              ->setModel(\App\Models\Access\User::class)
-             ->setRepositoryId('rinvex.repository.uniqueid');
+             ->setRepositoryId(md5('monkeymaker.repository.users'));
     }
 
     public function get()

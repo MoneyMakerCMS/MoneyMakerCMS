@@ -4,8 +4,6 @@ use Illuminate\Database\Seeder;
 
 class AccessRolesPermissionsSeeder extends Seeder
 {
-    protected $abilities = ['view', 'create', 'update', 'delete'];
-
     /**
      * Run the database seeds.
      *
@@ -41,14 +39,28 @@ class AccessRolesPermissionsSeeder extends Seeder
     public function seedAbilities()
     {
         Bouncer::ability()->truncate();
+
+        //create view admin ability
+        Bouncer::ability()->create([
+            'name'  => 'view-admin',
+            'title' => "View Admin",
+        ]);
+
+        Bouncer::ability()->create([
+            'name'  => 'view-dashboard',
+            'title' => "View Dashboard",
+        ]);
+
         foreach (config('core.entities') as $entity) {
             foreach (config('core.resource_nouns') as $resource_noun) {
                 $title = str_plural(collect(explode('\\', $entity))->last());
 
                 $ability_name = ucfirst($resource_noun);
-                Bouncer::ability()->createForModel($entity, [
+
+                Bouncer::ability()->create([
                     'name'  => $resource_noun,
                     'title' => "{$ability_name} {$title}",
+                    'entity_type' => $entity,
                 ]);
             }
         }
@@ -56,13 +68,15 @@ class AccessRolesPermissionsSeeder extends Seeder
 
     protected function assignAbilitiesToRoles()
     {
+        foreach (Bouncer::ability()->get() as $ability) {
+            Bouncer::allow('admin')->to($ability);
+        }
+
+        Bouncer::allow('user')->to('view-dashboard');
+
         Bouncer::allow('super-admin')->to([
             'name'  => '*',
             'title' => 'God Mode',
         ], '*');
-
-        foreach (Bouncer::ability()->get() as $ability) {
-            Bouncer::allow('admin')->to($ability);
-        }
     }
 }

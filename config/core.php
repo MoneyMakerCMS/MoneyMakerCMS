@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Content\Content;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -37,8 +39,9 @@ return [
     */
 
     'entities'       => [
-        'App\Models\Access\User',
-        'Silber\Bouncer\Database\Role',
+        App\Models\Access\User::class,
+        App\Models\Content\Content::class,
+        // 'Silber\Bouncer\Database\Role',
     ],
 
     /*
