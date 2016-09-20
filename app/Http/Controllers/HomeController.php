@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Bouncer;
 use App\Models\Access\User;
+use Bouncer;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -24,7 +24,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         // $check = Bouncer::allows('view-admin', User::class);
         // $user = Auth::user();
         // $check = Bouncer::allows('view-admin');
