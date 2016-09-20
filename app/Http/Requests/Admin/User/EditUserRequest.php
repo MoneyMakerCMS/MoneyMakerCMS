@@ -2,13 +2,12 @@
 
 namespace App\Http\Requests\Admin\User;
 
-use Bouncer;
 use App\Models\Access\User;
+use Bouncer;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EditUserRequest extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -28,7 +27,7 @@ class EditUserRequest extends FormRequest
     {
         return [
             'name'                  => 'required',
-            'email'                 => 'required|email|unique:users,email,' . $this->get('user_id'),
+            'email'                 => 'required|email|unique:users,email,'.$this->get('user_id'),
             'password'              => 'alpha_num|min:6|confirmed',
             'password_confirmation' => 'alpha_num|min:6',
         ];
