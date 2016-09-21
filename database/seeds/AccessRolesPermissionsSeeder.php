@@ -73,6 +73,7 @@ class AccessRolesPermissionsSeeder extends Seeder
         }
 
         Bouncer::allow('user')->to('view-dashboard');
+        
         $godMode =  Bouncer::ability()->create([
             'name'  => '*',
             'title' => 'God Mode',
