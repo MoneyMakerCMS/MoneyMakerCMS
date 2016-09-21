@@ -1,0 +1,28 @@
+.dataTables_filter {
+    float: right !important;
+}
+
+.dataTableBuilder_filter label input {
+    margin-left: 10px;
+}
+
+.dt-buttons {
+    float: left !important;
+    a.dt-button {
+        margin-right: 7px;
+        @extend .btn-sm;
+        cursor: pointer;
+    }
+    .buttons-csv {
+        @extend .btn-info;
+    }
+    .buttons-excel {
+        @extend .btn-primary;
+    }
+    .buttons-reset {
+        @extend .btn-success;
+    }
+    .buttons-reload {
+        @extend .btn-warning;
+    }
+}
