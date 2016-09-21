@@ -1,5 +1,12 @@
 @extends('admin.layouts.master')
 
+@section('page-header')
+<h1>
+	Users
+	<small>index</small>
+</h1>
+@endsection
+
 @section('content')
 <div class="box box-success">
 	<div class="box-header with-border">

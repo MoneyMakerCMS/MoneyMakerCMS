@@ -1,5 +1,11 @@
 @extends('admin.layouts.master')
 
+@section('page-header')
+<h1>
+	App Dasboard
+	<small>index</small>
+</h1>
+@endsection
 
 @section('content')
 <@extends('admin.layouts.master')

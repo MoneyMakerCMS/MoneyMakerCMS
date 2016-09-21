@@ -1,6 +1,12 @@
 @extends('admin.layouts.master')
 
-@section('content')
+@section('page-header')
+<h1>
+	Users Roles
+	<small>manage</small>
+</h1>
+@endsection
+
 @section('content')
 {{ Form::open(['class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) }}
 

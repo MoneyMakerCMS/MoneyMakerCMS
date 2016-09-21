@@ -1,16 +1,17 @@
 @extends('admin.layouts.master')
 
+@section('page-header')
+<h1>
+	App Content
+	<small>manage</small>
+</h1>
+@endsection
+
 @section('after-styles')
 <link rel="stylesheet" href="{{url('stylesheets/admin/content.css')}}">
 <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 @stop
 
-{{-- Inline styles --}}
-@section('styles')
-@parent
-@stop
-
-{{-- Page --}}
 @section('content')
 <div class="box">
 	<div class="box-body">
