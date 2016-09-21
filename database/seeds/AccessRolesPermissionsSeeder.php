@@ -73,10 +73,12 @@ class AccessRolesPermissionsSeeder extends Seeder
         }
 
         Bouncer::allow('user')->to('view-dashboard');
-
-        Bouncer::allow('super-admin')->to([
+        $godMode =  Bouncer::ability()->create([
             'name'  => '*',
             'title' => 'God Mode',
-        ], '*');
+            'entity_type' => '*',
+        ]);
+
+        Bouncer::allow('super-admin')->to($godMode);
     }
 }
