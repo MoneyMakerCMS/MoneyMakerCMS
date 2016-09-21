@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Roles;
 
-use Bouncer;
 use App\Http\Controllers\Controller;
+use Bouncer;
 
 class RolesController extends Controller
 {
@@ -43,14 +43,15 @@ class RolesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store()
     {
         $role = Bouncer::role()->create([
             'title' => request()->title,
-            'name' => str_slug(request()->title),
+            'name'  => str_slug(request()->title),
         ]);
 
         if (request()->abilities) {
@@ -73,7 +74,8 @@ class RolesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -84,7 +86,8 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -101,17 +104,18 @@ class RolesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($id)
     {
         $role = Bouncer::role()->find($id);
-        
+
         $role->name = str_slug(request()->title);
-        
-        $role->title =request()->title;
+
+        $role->title = request()->title;
 
         $role->save();
 
@@ -122,14 +126,15 @@ class RolesController extends Controller
         }
 
         Bouncer::refresh();
-        
+
         return redirect()->route('admin.roles.edit', $role->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

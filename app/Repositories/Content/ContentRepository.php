@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Content;
 
-use Bouncer;
 use Illuminate\Contracts\Container\Container;
 use Rinvex\Repository\Repositories\EloquentRepository;
 use Yajra\Datatables\Facades\Datatables;
@@ -23,27 +22,28 @@ class ContentRepository extends EloquentRepository
                  if ($content->enabled) {
                      return "<label class='label label-success'>Active</label>";
                  }
-                return "<label class='label label-warning'>Disabled</label>";
-            })
+
+                 return "<label class='label label-warning'>Disabled</label>";
+             })
              ->editColumn('type', function ($content) {
-                if ($content->type === "database") {
-                    return "<label class='label label-success'>". $content->type ."</label>";
-                }
-                return "<label class='label label-warning'>".$content->type."</label>";
-            })
+                 if ($content->type === 'database') {
+                     return "<label class='label label-success'>".$content->type.'</label>';
+                 }
+
+                 return "<label class='label label-warning'>".$content->type.'</label>';
+             })
              ->editColumn('html', function ($content) {
                  if ($content->html) {
                      return "<label class='label label-default'>HTML/Markup</label>";
                  }
-                return "<label class='label label-default'>Plain Text</label>";
-                
-            })->addColumn('actions', function ($content) {
-                return $content->action_buttons;
-            })
+
+                 return "<label class='label label-default'>Plain Text</label>";
+             })->addColumn('actions', function ($content) {
+                 return $content->action_buttons;
+             })
             ->make(true);
     }
 
-   
     public function store($id, array $input)
     {
         $data = array_except($input, ['content_id']);
@@ -51,12 +51,12 @@ class ContentRepository extends EloquentRepository
         return !$id ? $this->create($data) : $this->update($id, $data);
     }
 
-    public function render($slug, $locale ='en')
+    public function render($slug, $locale = 'en')
     {
         if ($content = $this->where('slug', '=', $slug)->where('enabled', '=', 1)->findAll()->first()) {
-            return $content->html ? $content->value :  strip_tags($content->value);
+            return $content->html ? $content->value : strip_tags($content->value);
         }
-        
+
         return $slug;
     }
 

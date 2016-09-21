@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 Route::group(['prefix' => 'content', 'namespace' => 'Content'], function () {
     Route::get('/', 'ContentController@index')->name('admin.content.index');

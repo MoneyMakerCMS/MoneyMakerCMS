@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Dashboard;
 
-use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Auth;
+use Silber\Bouncer\Bouncer;
 
 class DashboardController
 {

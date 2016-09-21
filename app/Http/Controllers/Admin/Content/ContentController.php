@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Admin\Content;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Filesystem\Filesystem;
-use App\Repositories\Content\ContentRepository;
-use App\Http\Requests\Admin\Content\EditContentRequest;
 use App\Http\Requests\Admin\Content\CreateContentRequest;
+use App\Http\Requests\Admin\Content\EditContentRequest;
+use App\Repositories\Content\ContentRepository;
+use Illuminate\Filesystem\Filesystem;
 
 class ContentController extends Controller
 {
     protected $content;
-    
+
     protected $manager;
-    
+
     public function __construct(ContentRepository $content, Filesystem $manager)
     {
         $this->content = $content;
 
         $this->manager = $manager;
-        
+
         $this->authorizeResource($this->content->getModel());
     }
 
@@ -33,11 +33,11 @@ class ContentController extends Controller
         return view('admin.content.index');
     }
 
-
     public function get()
     {
         return $this->content->get();
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -55,7 +55,8 @@ class ContentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CreateContentRequest $request)
@@ -70,7 +71,8 @@ class ContentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -80,7 +82,8 @@ class ContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -95,8 +98,9 @@ class ContentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(EditContentRequest $request, $id)
@@ -111,7 +115,8 @@ class ContentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

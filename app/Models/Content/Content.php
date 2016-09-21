@@ -2,13 +2,13 @@
 
 namespace App\Models\Content;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Render\TableActionsRenderTraite;
+use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
     use TableActionsRenderTraite;
-   	
-   	protected $guarded = ['id'];
+
+    protected $guarded = ['id'];
     protected $adminRouteString = 'admin.content.';
 }

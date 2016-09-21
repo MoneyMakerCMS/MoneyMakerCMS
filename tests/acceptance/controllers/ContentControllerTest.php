@@ -1,15 +1,14 @@
 <?php
 
-use Carbon\Carbon;
 use App\Models\Content\Content;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ContentControllerTest extends TestCase
 {
     use CreateUsersWithRolesTrait, DatabaseTransactions, DatabaseMigrations;
-    
+
     public function test_content_controller_redirects_unauthed_user()
     {
         $this->visit('admin/content')->seePageIs('login');
@@ -68,12 +67,12 @@ class ContentControllerTest extends TestCase
         $this->actingAs($user);
 
         $default = [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ];
@@ -82,7 +81,7 @@ class ContentControllerTest extends TestCase
         DB::table('contents')->insert($default);
 
         $content = DB::table('contents')->where('slug', 'app-name')->first();
-    
+
 
         // $this->visit(route('admin.content.edit', [$content->id]));
     }
