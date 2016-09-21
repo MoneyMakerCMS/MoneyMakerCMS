@@ -2,26 +2,6 @@ const elixir = require('laravel-elixir');
 
 require('laravel-elixir-vue');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
-
-// elixir(mix => {
-//     mix.sass('app.scss', 'public/stylesheets/frontend/styles.css')
-//         .webpack('app.js', 'public/javascript/frontend/app.js');
-// });
-
-/*
- * 
- */
-
 elixir(mix => {
 
     mix.sass([
@@ -30,6 +10,7 @@ elixir(mix => {
 
     .styles([
         'admin/styles.css',
+        './node_modules/sweetalert/dist/sweetalert.css',
         './node_modules/admin-lte/dist/css/AdminLTE.css',
         './node_modules/admin-lte/dist/css/skins/skin-black-light.css',
         './node_modules/datatables.net-bs/css/dataTables.bootstrap.css'
@@ -40,7 +21,22 @@ elixir(mix => {
     ], './resources/assets/js/admin/bundle.js')
 
     .scripts([
+        '../../../node_modules/vue/dist/vue.js',
+        '../../../node_modules/vue-resource/dist/vue-resource.js',
+        '../../../node_modules/selectize/dist/js/standalone/selectize.js',
+        'admin/slugify.js',
+        'admin/content/content.js',
+
+    ], 'public/javascript/admin/content.js')
+
+    .styles([
+        '../../../node_modules/selectize/dist/css/selectize.bootstrap3.css'
+
+    ], 'public/stylesheets/admin/content.css')
+
+    .scripts([
         './node_modules/jquery/dist/jquery.js',
+        './node_modules/sweetalert/dist/sweetalert.min.js',
         './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
         './node_modules/datatables.net/js/jquery.dataTables.js',
         './node_modules/datatables.net-bs/js/dataTables.bootstrap.js',
