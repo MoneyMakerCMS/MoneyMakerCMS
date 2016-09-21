@@ -1,10 +1,10 @@
 <?php
 
-use Carbon\Carbon;
 use App\Models\Content\Content as ContentModel;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ContentUnitTest extends TestCase
 {
@@ -51,22 +51,22 @@ class ContentUnitTest extends TestCase
         $this->setUserActions();
 
         $response = $this->call('POST', '/admin/content/create', [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
 
         $this->seeInDatabase('contents', [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
+            'name'    => 'App Name',
+            'slug'    => 'app-name',
+            'type'    => 'database',
+            'html'    => 1,
+            'value'   => '<b>MoneyMaker</b> CM<b>$</b>',
             'enabled' => 1,
         ]);
 
@@ -78,24 +78,24 @@ class ContentUnitTest extends TestCase
         $this->setUserActions();
 
         $this->call('POST', '/admin/content/create', [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
 
         $response = $this->call('POST', '/admin/content/1/edit', [
             'content_id' => 1,
-            'name' => 'New App Name',
-            'slug' => 'new-app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'New App Name',
+            'slug'       => 'new-app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
         ]);
 
         $this->seeInDatabase('contents', [
@@ -111,23 +111,23 @@ class ContentUnitTest extends TestCase
         $this->setUserActions();
 
         $this->call('POST', '/admin/content/create', [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
 
         $response = $this->call('POST', '/admin/content/create', [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -138,14 +138,14 @@ class ContentUnitTest extends TestCase
     public function test_content_requires_all_fields()
     {
         $this->setUserActions();
-    
+
         $this->call('POST', '/admin/content/create', [
-            'name' => '',
-            'slug' => '',
-            'type' => 'database',
-            'html' => 0,
-            'value' => "",
-            'enabled' => 0,
+            'name'       => '',
+            'slug'       => '',
+            'type'       => 'database',
+            'html'       => 0,
+            'value'      => '',
+            'enabled'    => 0,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -165,12 +165,12 @@ class ContentUnitTest extends TestCase
     protected function createContent($override = [])
     {
         $default = [
-            'name' => 'App Name',
-            'slug' => 'app-name',
-            'type' => 'database',
-            'html' => 1,
-            'value' => "<b>MoneyMaker</b> CM<b>$</b>",
-            'enabled' => 1,
+            'name'       => 'App Name',
+            'slug'       => 'app-name',
+            'type'       => 'database',
+            'html'       => 1,
+            'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+            'enabled'    => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ];

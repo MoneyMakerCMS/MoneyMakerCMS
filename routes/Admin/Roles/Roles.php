@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 
 Route::group(['prefix' => 'roles', 'namespace' => 'Roles'], function () {

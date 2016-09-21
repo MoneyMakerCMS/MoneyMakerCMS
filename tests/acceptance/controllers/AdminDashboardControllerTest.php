@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdminDashboardControllerTest extends TestCase
 {
     use CreateUsersWithRolesTrait, DatabaseTransactions, DatabaseMigrations;
-    
+
     public function test_dashboard_controller_redirects_unauthed_user()
     {
         $this->visit('admin')->seePageIs('login');
@@ -30,5 +29,4 @@ class AdminDashboardControllerTest extends TestCase
 
         $this->assertEquals(302, $response->status());
     }
-    
 }

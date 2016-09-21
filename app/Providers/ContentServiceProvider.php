@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 use App\Repositories\Content\ContentRepository;
+use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
 
 class ContentServiceProvider extends ServiceProvider
 {
@@ -34,7 +34,7 @@ class ContentServiceProvider extends ServiceProvider
         });
 
         $loader = AliasLoader::getInstance();
-        
+
         $loader->alias('Content', \App\Facades\Content\Content::class);
 
         Blade::directive('content', function ($slug) {

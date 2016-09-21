@@ -25,7 +25,7 @@ class BladeExtensionsServiceProvider extends ServiceProvider
     public function register()
     {
         Blade::directive('allowed', function ($action) {
-            return '<?php if (Bouncer::allows(' . $action . ')): ?>';
+            return '<?php if (Bouncer::allows('.$action.')): ?>';
         });
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Admin\Content;
 
-use Bouncer;
 use App\Models\Content\Content;
+use Bouncer;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EditContentRequest extends FormRequest
@@ -26,12 +26,12 @@ class EditContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'html' => 'required',
+            'name'  => 'required',
+            'html'  => 'required',
             'value' => 'required_if:type,database',
-            'file' => 'required_if:type,file',
-            'type' => 'required|in:database,file',
-            'slug' => 'required|alpha_dash|unique:contents,slug,' . $this->get('content_id'),
+            'file'  => 'required_if:type,file',
+            'type'  => 'required|in:database,file',
+            'slug'  => 'required|alpha_dash|unique:contents,slug,'.$this->get('content_id'),
         ];
     }
 }

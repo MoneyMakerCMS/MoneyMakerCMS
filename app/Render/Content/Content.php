@@ -18,4 +18,3 @@ class Content
         return $this->content->render($slug);
     }
 }
-
