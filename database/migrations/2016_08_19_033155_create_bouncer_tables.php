@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Silber\Bouncer\Database\Models;
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateBouncerTables extends Migration
 {
@@ -15,20 +16,24 @@ class CreateBouncerTables extends Migration
     {
         Schema::create(Models::table('abilities'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name', 150);
             $table->string('title')->nullable();
             $table->integer('entity_id')->unsigned()->nullable();
-            $table->string('entity_type')->nullable();
+            $table->string('entity_type', 150)->nullable();
+            $table->boolean('only_owned')->default(false);
             $table->timestamps();
 
-            $table->unique(['name', 'entity_id', 'entity_type']);
+            $table->unique(
+                ['name', 'entity_id', 'entity_type', 'only_owned'],
+                'abilities_unique_index'
+            );
         });
 
         Schema::create(Models::table('roles'), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('title')->nullable();
-            $table->integer('level')->unsigned()->nullable(1);
+            $table->integer('level')->unsigned()->nullable();
             $table->timestamps();
         });
 
