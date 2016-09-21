@@ -40,7 +40,6 @@ return [
     'entities'       => [
         App\Models\Access\User::class,
         App\Models\Content\Content::class,
-        // 'Silber\Bouncer\Database\Role',
     ],
 
     /*
