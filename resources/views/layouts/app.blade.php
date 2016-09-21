@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    @content('site-name')
+                    @content('app-name')
                 </a>
             </div>
 
