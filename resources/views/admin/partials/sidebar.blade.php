@@ -7,9 +7,9 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-      
+
         <img src="{{Gravatar::get(Auth::user()->email)}}" class="img-circle" alt="User Image">
-      
+
       </div>
       <div class="pull-left info">
         <p>{{Auth::user()->name ? : ''}}</p>
@@ -33,6 +33,9 @@
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <li class="header">ADMIN</li>
+      <li class="{{ Active::pattern('admin/dashboard') }}">
+        <a href="{{route('admin.dashboard.index')}}">Dashboard</a>
+      </li>
 
       @allowed('view-users')
       <li class="{{ Active::pattern('admin/users*') }} treeview">
