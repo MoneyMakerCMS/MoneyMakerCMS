@@ -25,11 +25,10 @@ class PagesAlteredEventHandler
     {
         $pages = $this->pages->findActive();
 
-        $path = realpath(base_path('routes/Frontend/Pages/Pages.php'));
+        $path = realpath(base_path('routes/Frontend/Dynamic/Dynamic.php'));
 
         $content = view('pages.routes.routes')->with(['pages' => $pages]);
-
-        File::put($path, '');
+        
         File::put($path, $content);
     }
 }
