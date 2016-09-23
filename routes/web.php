@@ -1,5 +1,9 @@
 <?php
 
+/*
+* Admin Routes
+*/
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web', 'auth']], function () {
     Route::group(['middleware' => ['permission:view-admin']], function () {
         require __DIR__.'/Admin/Dashboard/Dashboard.php';
@@ -11,8 +15,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web
 });
 
 
+/*
+* Frontend Routes
+*/
+
 Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+require __DIR__.'/Frontend/Pages/Pages.php';
+
+
+
+/*
+* Dynamic routes file created from pages
+*/
+require __DIR__.'/Frontend/Dynamic/Dynamic.php';
