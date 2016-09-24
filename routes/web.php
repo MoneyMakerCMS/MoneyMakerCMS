@@ -25,10 +25,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-require __DIR__.'/Frontend/Pages/Pages.php';
-
-
-
 /*
 * Dynamic routes file created from pages
 */
