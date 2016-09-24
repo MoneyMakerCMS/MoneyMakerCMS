@@ -58,7 +58,7 @@ class UsersController extends Controller
     {
         $user = $this->users->store(null, $request);
 
-        return redirect()->route('admin.users.edit', [$user->id]);
+        return redirect()->route('admin.users.edit', [$user->id])->with('flash', ['type' => 'success', 'message'=>'User crated']);
     }
 
     /**
@@ -99,7 +99,7 @@ class UsersController extends Controller
     {
         $user = $this->users->store($id, $request);
 
-        return redirect()->route('admin.users.edit', [$user->id]);
+        return redirect()->route('admin.users.edit', [$user->id])->with('flash', ['type' => 'success', 'message'=>'User updated']);
     }
 
     /**
@@ -113,6 +113,6 @@ class UsersController extends Controller
     {
         $this->users->delete($id);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('flash', ['type' => 'success', 'message'=>'User deleted']);
     }
 }
