@@ -10,5 +10,4 @@ Route::group(['prefix' => 'pages', 'namespace' => 'Pages'], function () {
     Route::get('{id}/edit', 'PageController@edit')->name('admin.pages.edit');
     Route::post('{id}/edit', 'PageController@update')->name('admin.pages.update');
     Route::delete('{id}/destroy', 'PageController@destroy')->name('admin.pages.destroy');
-    Route::get('test', 'PageController@test')->name('admin.pages.test');
 });
