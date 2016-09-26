@@ -34,6 +34,21 @@ elixir(mix => {
 
     ], 'public/stylesheets/admin/content.css')
 
+
+    .scripts([
+        '../../../node_modules/vue/dist/vue.js',
+        '../../../node_modules/vue-resource/dist/vue-resource.js',
+        '../../../node_modules/selectize/dist/js/standalone/selectize.js',
+        'admin/slugify.js',
+        'admin/pages/pages.js',
+
+    ], 'public/javascript/admin/pages.js')
+
+    .styles([
+        '../../../node_modules/selectize/dist/css/selectize.bootstrap3.css'
+
+    ], 'public/stylesheets/admin/pages.css')
+
     .scripts([
         './node_modules/jquery/dist/jquery.js',
         './node_modules/sweetalert/dist/sweetalert.min.js',
