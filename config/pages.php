@@ -13,7 +13,7 @@ return [
     /*
      * Default path for frontend pages
      */
-    'page_path' => [
+    'path' => [
         'frontend' => base_path('resources/views/frontend/pages'),
         'name' => 'frontend.pages',
     ],
