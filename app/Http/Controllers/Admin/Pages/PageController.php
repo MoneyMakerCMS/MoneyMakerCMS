@@ -17,13 +17,6 @@ class PageController extends Controller
         $this->pages = $pages;
     }
 
-
-    public function test()
-    {
-        $page = $this->pages->find(1);
-
-        event(new PagesAlteredEvent);
-    }
     /**
      * Display a listing of the resource.
      *
