@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Pages;
 
+use App\Models\Seo\Seo;
 use Illuminate\Support\Facades\View;
+use Illuminate\Filesystem\Filesystem;
 use Yajra\Datatables\Facades\Datatables;
 use Illuminate\Contracts\Container\Container;
 use App\Repositories\Pages\Traits\ParsePageTrait;
@@ -14,13 +16,16 @@ class PagesRepository extends EloquentRepository
 
     private $blade;
 
-    public function __construct(Container $container)
+    private $manager;
+
+    public function __construct(Container $container, Filesystem $manager)
     {
         $this->setContainer($container)
              ->setModel(\App\Models\Pages\Page::class)
              ->setRepositoryId(md5('monkeymaker.repository.pages'));
 
         $this->blade = $container['blade.compiler'];
+        $this->manager = $manager;
     }
 
     public function get()
@@ -50,9 +55,30 @@ class PagesRepository extends EloquentRepository
 
     public function store($id, array $input)
     {
-        $data = array_except($input, ['page_id']);
+        $data = array_except($input, ['page_id', 'title', 'description', 'keywords', 'robots', 'image', 'files']);
 
-        return !$id ? $this->create($data) : $this->update($id, $data);
+        $return = !$id ? $this->create($data) : $this->update($id, $data);
+
+        list($status, $instance) = $return;
+
+        $instance->storeSeo($input);
+    
+        return $instance;
+    }
+
+    public function getFormData($id)
+    {
+        $page = !$id ? $this->createModel() : $this->find($id);
+
+        $seo = !$id ? new Seo : $page->seo;
+
+        $layouts = $this->manager->allFiles(config('pages.layouts.path'));
+
+        $pages = $this->manager->allFiles(config('pages.pages.path'));
+
+        $middleware = config('pages.middleware');
+
+        return compact('page', 'seo', 'pages', 'layouts', 'middleware');
     }
 
     public function render($uri)
