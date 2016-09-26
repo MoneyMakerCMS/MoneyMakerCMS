@@ -5,16 +5,16 @@ return [
     /*
      * Default path for layouts
      */
-    'layout_path' => [
-        'frontend' => base_path('resources/views/frontend/layouts'),
+    'layouts' => [
+        'path' => base_path('resources/views/frontend/layouts'),
         'name' => 'frontend.layouts.',
     ],
 
     /*
      * Default path for frontend pages
      */
-    'path' => [
-        'frontend' => base_path('resources/views/frontend/pages'),
+    'pages' => [
+        'path' => base_path('resources/views/frontend/pages'),
         'name' => 'frontend.pages',
     ],
 
