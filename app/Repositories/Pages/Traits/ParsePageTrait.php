@@ -4,7 +4,6 @@ namespace App\Repositories\Pages\Traits;
 
 trait ParsePageTrait
 {
-
     protected function parse($string, array $args = [])
     {
         $generated = $this->blade->compileString($string);

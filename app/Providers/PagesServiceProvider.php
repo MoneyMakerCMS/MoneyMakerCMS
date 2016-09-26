@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Pages\Page;
-use Illuminate\Support\ServiceProvider;
 use App\Repositories\Pages\PagesRepository;
+use Illuminate\Support\ServiceProvider;
 
 class PagesServiceProvider extends ServiceProvider
 {
@@ -14,8 +14,8 @@ class PagesServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    { 
-         Page::observe(\App\Observers\Admin\Pages\PagesObserver::class);
+    {
+        Page::observe(\App\Observers\Admin\Pages\PagesObserver::class);
     }
 
     /**

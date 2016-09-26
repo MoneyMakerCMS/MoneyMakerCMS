@@ -13,25 +13,25 @@ class PagesSeeder extends Seeder
      */
     public function run()
     {
-    	 if (! DB::table('pages')->where('name', 'Home Page')->first()) {
+        if (!DB::table('pages')->where('name', 'Home Page')->first()) {
             $this->create_default_page();
         }
     }
 
     public function create_default_page()
     {
-    	 //insert default table
+        //insert default table
         $page = DB::table('pages')->insert([
-            'name' => 'Home Page',
-            'uri' => '/',
-            'route' => 'frontend.index',
-            'type' => 'database',
+            'name'       => 'Home Page',
+            'uri'        => '/',
+            'route'      => 'frontend.index',
+            'type'       => 'database',
             'middleware' => '["web"]',
-            'layout' => 'frontend.layouts.master',
-            'section' => 'content',
-            'content' => '<h1>@content(\'app-name\')</h1>',
-            'file' => '',
-            'active' => 1,
+            'layout'     => 'frontend.layouts.master',
+            'section'    => 'content',
+            'content'    => '<h1>@content(\'app-name\')</h1>',
+            'file'       => '',
+            'active'     => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -39,14 +39,14 @@ class PagesSeeder extends Seeder
         $page = DB::table('pages')->where('name', 'Home Page')->first();
 
         DB::table('seo')->insert([
-            'entity_id' => $page->id,
+            'entity_id'   => $page->id,
             'entity_type' => 'App\\Models\\Pages\\Page',
-            'title' => 'Default Homepage Title',
+            'title'       => 'Default Homepage Title',
             'description' => 'Default Homepage Description',
-            'keywords' => '',
-            'robots' => 'noindex,nofollow',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'keywords'    => '',
+            'robots'      => 'noindex,nofollow',
+            'created_at'  => Carbon::now(),
+            'updated_at'  => Carbon::now(),
         ]);
     }
 }

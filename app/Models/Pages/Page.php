@@ -3,19 +3,19 @@
 namespace App\Models\Pages;
 
 use App\Models\Seo\Seo;
+use App\Models\Traits\Render\TableActionsRenderTraite;
 use App\Models\Traits\Seo\SeoTrait;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Render\TableActionsRenderTraite;
 
 class Page extends Model
 {
     use SeoTrait, TableActionsRenderTraite;
 
     protected $guarded = ['id'];
-    
+
     protected $adminRouteString = 'admin.pages.';
 
-     /**
+    /**
      * Returns the seo entry that belongs to this entity.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
@@ -29,7 +29,7 @@ class Page extends Model
     {
         return json_decode($value);
     }
-    
+
     public function setMiddleWareAttribute($value)
     {
         $this->attributes['middleware'] = json_encode($value);
@@ -38,7 +38,7 @@ class Page extends Model
     public function getPageMiddleWareAttribute($value)
     {
         return implode(',', collect($this->middleware)->map(function ($m) {
-            return '"'.$m. '"';
+            return '"'.$m.'"';
         })->toArray());
     }
 }

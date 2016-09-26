@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 use App\Events\Admin\Pages\PagesAlteredEvent;
+use Illuminate\Console\Command;
 
 class CreatePageRoutesCommand extends Command
 {
