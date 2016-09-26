@@ -79,7 +79,7 @@
     </nav>
 
     @yield('content')
-
+    
     <!-- Scripts -->
     <script src="{{url('javascript/frontend/app.js')}}"></script>
 </body>
