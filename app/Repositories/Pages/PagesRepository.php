@@ -3,12 +3,11 @@
 namespace App\Repositories\Pages;
 
 use App\Models\Seo\Seo;
-use Illuminate\Support\Facades\View;
-use Illuminate\Filesystem\Filesystem;
-use Yajra\Datatables\Facades\Datatables;
-use Illuminate\Contracts\Container\Container;
 use App\Repositories\Pages\Traits\ParsePageTrait;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Filesystem\Filesystem;
 use Rinvex\Repository\Repositories\EloquentRepository;
+use Yajra\Datatables\Facades\Datatables;
 
 class PagesRepository extends EloquentRepository
 {
@@ -32,7 +31,7 @@ class PagesRepository extends EloquentRepository
     {
         return Datatables::of($this->createModel()->query())
              ->editColumn('uri', function ($page) {
-                return "";
+                 return '';
                  // return "<label class='label label-warning'>" . route($page->route) ."</label>";
              })->editColumn('active', function ($page) {
                  if ($page->active) {
@@ -45,6 +44,7 @@ class PagesRepository extends EloquentRepository
                  if ($page->type === 'database') {
                      return "<label class='label label-success'>".$page->type.'</label>';
                  }
+
                  return "<label class='label label-warning'>".$page->type.'</label>';
              })
              ->addColumn('actions', function ($page) {
@@ -62,7 +62,7 @@ class PagesRepository extends EloquentRepository
         list($status, $instance) = $return;
 
         $instance->storeSeo($input);
-    
+
         return $instance;
     }
 
@@ -70,7 +70,7 @@ class PagesRepository extends EloquentRepository
     {
         $page = !$id ? $this->createModel() : $this->find($id);
 
-        $seo = !$id ? new Seo : $page->seo;
+        $seo = !$id ? new Seo() : $page->seo;
 
         $layouts = $this->manager->allFiles(config('pages.layouts.path'));
 
@@ -87,8 +87,8 @@ class PagesRepository extends EloquentRepository
             if ($page->type === 'database') {
                 $content = $this->parse($page->content);
             }
-            
-            return collect(['content' => $content, 'page' => $page ]);
+
+            return collect(['content' => $content, 'page' => $page]);
         }
 
         return false;

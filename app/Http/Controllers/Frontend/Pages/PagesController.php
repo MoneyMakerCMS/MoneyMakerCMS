@@ -13,13 +13,13 @@ class PagesController extends Controller
     {
         $this->pages = $pages;
     }
-    
+
     public function index()
     {
         if ($page = $this->pages->render(request()->path())) {
             return view('pages.views.view')->with(compact('page'));
         }
-   
+
         abort(404);
     }
 }

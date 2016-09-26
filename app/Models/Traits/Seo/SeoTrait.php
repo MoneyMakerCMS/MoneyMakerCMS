@@ -1,10 +1,9 @@
-<?php 
+<?php
 
 namespace App\Models\Traits\Seo;
 
 trait SeoTrait
 {
-
     /**
      * Returns the seo entry that belongs to entity.
      *
@@ -12,7 +11,7 @@ trait SeoTrait
      */
     abstract public function seo();
 
-     /**
+    /**
      * Determines if the entity has a seo entry attached.
      *
      * @return bool
@@ -22,10 +21,11 @@ trait SeoTrait
         return (bool) $this->seo;
     }
 
-     /**
-     * Creates a new seo entry
+    /**
+     * Creates a new seo entry.
      *
-     * @param  array  $attributes
+     * @param array $attributes
+     *
      * @return Seo
      */
     public function createSeo(array $data)
@@ -33,10 +33,11 @@ trait SeoTrait
         return $this->seo()->create($this->sanatize($data));
     }
 
-     /**
+    /**
      * Updates the seo entry with the given attributes.
      *
-     * @param  array  $attributes
+     * @param array $attributes
+     *
      * @return \Werxe\LaravelSeo\Contracts\Seo
      */
     public function updateSeo(array $data)
@@ -51,12 +52,13 @@ trait SeoTrait
     /**
      * Creates or Updates the seo entry with the given attributes.
      *
-     * @param  array  $attributes
+     * @param array $attributes
+     *
      * @return Seo
      */
     public function storeSeo(array $attributes)
     {
-        $method = ! $this->seo ? 'createSeo' : 'updateSeo';
+        $method = !$this->seo ? 'createSeo' : 'updateSeo';
 
         return $this->{$method}($attributes);
     }
@@ -73,6 +75,6 @@ trait SeoTrait
 
     protected function sanatize($data)
     {
-        return [ 'title' => $data['title'], 'description' => $data['description'], 'keywords' => $data['keywords'], 'robots' => $data['robots'] ];
+        return ['title' => $data['title'], 'description' => $data['description'], 'keywords' => $data['keywords'], 'robots' => $data['robots']];
     }
 }

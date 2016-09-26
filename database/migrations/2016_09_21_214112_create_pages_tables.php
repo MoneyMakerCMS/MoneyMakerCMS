@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePagesTables extends Migration
 {
@@ -28,7 +28,7 @@ class CreatePagesTables extends Migration
             $table->boolean('ab')->default(0);
 
             $table->timestamps();
-            
+
             $table->engine = 'InnoDB';
             $table->unique('uri');
             $table->index(['uri', 'active']);

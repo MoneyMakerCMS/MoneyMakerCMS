@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests\Admin\Pages;
 
-use Bouncer;
 use App\Models\Pages\Page;
-use Illuminate\Contracts\Auth\Access\Gate;
+use Bouncer;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreatePageRequest extends FormRequest
@@ -27,13 +26,13 @@ class CreatePageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'uri' => 'required|unique:pages',
-            'route' => 'unique:pages',
-            'layout' => 'required',
-            'type' => 'required|in:database,file',
+            'name'    => 'required',
+            'uri'     => 'required|unique:pages',
+            'route'   => 'unique:pages',
+            'layout'  => 'required',
+            'type'    => 'required|in:database,file',
             'content' => 'required_if:type,database',
-            'file' => 'required_if:type,file',
+            'file'    => 'required_if:type,file',
         ];
     }
 }
