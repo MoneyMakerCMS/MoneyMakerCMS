@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Pages\PagesRepository;
 use App\Events\Admin\Pages\PagesAlteredEvent;
+use App\Http\Requests\Admin\Pages\EditPageRequest;
+use App\Http\Requests\Admin\Pages\CreatePageRequest;
 
 class PageController extends Controller
 {
@@ -40,7 +42,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.form')->with($this->pages->getFormData(null));
     }
 
     /**
@@ -49,9 +51,11 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePageRequest $request)
     {
-        //
+        $page = $this->pages->store(null, $request->all());
+
+        return redirect()->route('admin.pages.edit', [$page->id]);
     }
 
     /**
@@ -62,7 +66,6 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -73,7 +76,7 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pages.form')->with($this->pages->getFormData($id));
     }
 
     /**
@@ -83,9 +86,11 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditPageRequest $request, $id)
     {
-        //
+        $page = $this->pages->store($id, $request->all());
+
+        return redirect()->route('admin.pages.edit', [$page->id]);
     }
 
     /**
