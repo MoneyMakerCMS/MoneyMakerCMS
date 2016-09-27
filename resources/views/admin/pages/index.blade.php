@@ -51,7 +51,7 @@
 			columns: [
 				{ data: 'id', name: 'id' },
 				{ data: 'name', name: 'name' },
-				{ data: 'uri', name: 'uri' },
+				{ data: 'uri', name: 'uri'},
 				{ data: 'type', name: 'type' },
 				{ data: 'active', name: 'active' },
 				{ data: 'created_at', name: 'created_at' },

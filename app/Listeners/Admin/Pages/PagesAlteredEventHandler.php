@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\File;
 class PagesAlteredEventHandler
 {
     private $pages;
+    private $routePath;
 
-    public function __construct(PagesRepository $pages)
+    public function __construct(PagesRepository $pages, $routePath)
     {
+        $this->routePath = $routePath;
         $this->pages = $pages;
     }
 
@@ -26,10 +28,8 @@ class PagesAlteredEventHandler
     {
         $pages = $this->pages->findActive();
 
-        $path = realpath(base_path('routes/Frontend/Dynamic/Dynamic.php'));
-
         $content = view('pages.routes.routes')->with(['pages' => $pages]);
 
-        File::put($path, $content);
+        File::put($this->routePath, $content);
     }
 }

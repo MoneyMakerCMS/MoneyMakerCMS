@@ -14,6 +14,8 @@ class PageController extends Controller
     public function __construct(PagesRepository $pages)
     {
         $this->pages = $pages;
+        
+        $this->authorizeResource($this->pages->getModel());
     }
 
     /**
@@ -52,7 +54,7 @@ class PageController extends Controller
     {
         $page = $this->pages->store(null, $request->all());
 
-        return redirect()->route('admin.pages.edit', [$page->id]);
+        return redirect()->route('admin.pages.edit', [$page->id])->with('flash', ['type' => 'success', 'message' => 'Page Created']);
     }
 
     /**
@@ -90,7 +92,7 @@ class PageController extends Controller
     {
         $page = $this->pages->store($id, $request->all());
 
-        return redirect()->route('admin.pages.edit', [$page->id]);
+        return redirect()->route('admin.pages.edit', [$page->id])->with('flash', ['type' => 'success', 'message' => 'Page updated']);
     }
 
     /**
@@ -102,6 +104,8 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->pages->delete($id);
+        
+        return redirect()->route('admin.pages.index')->with('flash', ['type' => 'success', 'message' => 'Page deleted']);
     }
 }

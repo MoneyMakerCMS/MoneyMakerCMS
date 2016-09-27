@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Content\Content;
 use Carbon\Carbon;
+use App\Models\Content\Content;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -63,8 +63,7 @@ class ContentControllerTest extends TestCase
         $user = $this->createUserWith(['admin'], ['view-admin']);
 
         $user->allow('edit', Content::class);
-
-        $this->actingAs($user);
+        $user->allow('update', Content::class);
 
         $default = [
             'name'       => 'App Name',
@@ -79,10 +78,14 @@ class ContentControllerTest extends TestCase
 
 
         DB::table('contents')->insert($default);
+        
+        $content_id = DB::getPdo()->lastInsertId();
 
-        $content = DB::table('contents')->where('slug', 'app-name')->first();
-
-
-        // $this->visit(route('admin.content.edit', [$content->id]));
+        $this->actingAs($user);
+        $content = Content::find($content_id);
+        $this->assertTrue(Bouncer::allows('edit', Content::class));
+        $this->assertTrue(Bouncer::allows('edit', $content));
+        $this->assertTrue(Bouncer::allows('update', $content));
+        
     }
 }

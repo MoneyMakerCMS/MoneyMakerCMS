@@ -31,8 +31,8 @@ class PagesRepository extends EloquentRepository
     {
         return Datatables::of($this->createModel()->query())
              ->editColumn('uri', function ($page) {
-                 return '';
-                 // return "<label class='label label-warning'>" . route($page->route) ."</label>";
+                 
+                 return "<label class='label label-default'>" . url($page->uri) ."</label>";
              })->editColumn('active', function ($page) {
                  if ($page->active) {
                      return "<label class='label label-success'>Active</label>";
@@ -62,7 +62,7 @@ class PagesRepository extends EloquentRepository
         list($status, $instance) = $return;
 
         $instance->storeSeo($input);
-
+        
         return $instance;
     }
 

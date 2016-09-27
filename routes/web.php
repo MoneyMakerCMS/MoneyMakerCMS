@@ -28,4 +28,4 @@ Route::get('/home', 'HomeController@index');
 /*
 * Dynamic routes file created from pages
 */
-require __DIR__.'/Frontend/Dynamic/Dynamic.php';
+require app('dynamic_routes_path');
