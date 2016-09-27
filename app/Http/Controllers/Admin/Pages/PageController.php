@@ -14,7 +14,7 @@ class PageController extends Controller
     public function __construct(PagesRepository $pages)
     {
         $this->pages = $pages;
-        
+
         $this->authorizeResource($this->pages->getModel());
     }
 
@@ -105,7 +105,7 @@ class PageController extends Controller
     public function destroy($id)
     {
         $this->pages->delete($id);
-        
+
         return redirect()->route('admin.pages.index')->with('flash', ['type' => 'success', 'message' => 'Page deleted']);
     }
 }

@@ -121,6 +121,5 @@ class ContentController extends Controller
      */
     public function destroy($id)
     {
-       
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Carbon\Carbon;
 use App\Models\Content\Content;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -78,7 +78,7 @@ class ContentControllerTest extends TestCase
 
 
         DB::table('contents')->insert($default);
-        
+
         $content_id = DB::getPdo()->lastInsertId();
 
         $this->actingAs($user);
@@ -86,6 +86,5 @@ class ContentControllerTest extends TestCase
         $this->assertTrue(Bouncer::allows('edit', Content::class));
         $this->assertTrue(Bouncer::allows('edit', $content));
         $this->assertTrue(Bouncer::allows('update', $content));
-        
     }
 }
