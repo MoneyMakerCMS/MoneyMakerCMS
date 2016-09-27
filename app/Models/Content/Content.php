@@ -10,5 +10,6 @@ class Content extends Model
     use TableActionsRenderTraite;
 
     protected $guarded = ['id'];
+
     protected $adminRouteString = 'admin.content.';
 }

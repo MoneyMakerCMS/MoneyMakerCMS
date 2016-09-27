@@ -40,6 +40,7 @@ return [
     'entities'       => [
         App\Models\Access\User::class,
         App\Models\Content\Content::class,
+        App\Models\Pages\Page::class,
     ],
 
     /*

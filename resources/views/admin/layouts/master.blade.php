@@ -215,7 +215,13 @@
 
     <!-- Main content -->
     <section class="content">
-
+    
+      @if (session()->get('flash'))
+      <div class="alert alert-{{session()->get('flash')['type']}}">        
+        {{ session()->get('flash')['message'] }}
+      </div>
+      @endif
+      
       @yield('content')
 
     </section>

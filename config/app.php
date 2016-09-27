@@ -179,6 +179,7 @@ return [
         App\Providers\BladeExtensionsServiceProvider::class,
         App\Providers\RepositoriesServiceProvider::class,
         App\Providers\ContentServiceProvider::class,
+        App\Providers\PagesServiceProvider::class,
 
         /*
         * MoneyMaker Providers

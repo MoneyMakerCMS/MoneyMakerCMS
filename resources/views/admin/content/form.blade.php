@@ -101,11 +101,9 @@
 @section('after-scripts')
 <script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 <script>
-	Content = {
+	var Content = {
 		database: @if( old('type', $content->type) === 'database' || old('type', $content->type) === null ) true @else false @endif
 	};
 </script>
 <script src="{{url('javascript/admin/content.js')}}"></script>
-
-
 @stop

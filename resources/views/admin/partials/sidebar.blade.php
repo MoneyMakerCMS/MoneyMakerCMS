@@ -71,6 +71,23 @@
       </li>
       @endif
 
+      @allowed('view-pages')
+      <li class="{{ Active::pattern('admin/pages*') }} treeview">
+        <a href="#">
+          <span>&nbsp;&nbsp;Pages</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu {{ Active::pattern('admin/pages*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/pages*', 'display: block;') }}">
+          <li class="{{ Active::pattern('admin/pages') }}">
+            <a href="{{route('admin.pages.index')}}"><i class="fa fa-circle-thin"></i> All</a>
+          </li>
+          <li class="{{ Active::pattern('admin/pages') }}">
+            <a href="{{route('admin.pages.create')}}"><i class="fa fa-circle-thin"></i> Create</a>
+          </li>
+        </ul>
+      </li>
+      @endif
+
       @allowed('view-contents')
       <li class="{{ Active::pattern('admin/content*') }} treeview">
         <a href="#">
