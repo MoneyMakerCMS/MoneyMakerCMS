@@ -1,28 +1,25 @@
 <?php
 
 use App\Models\Pages\Page;
-use Illuminate\Support\Facades\File;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\File;
 
 class PagesControllerTest extends TestCase
 {
-    
     use CreateUsersWithRolesTrait, CreatePageTrait, DatabaseTransactions, DatabaseMigrations;
-
 
     public function setUp()
     {
         parent::setUp();
-       
+
         $this->app->instance('dynamic_routes_path', base_path('tests/tmp/routes.php'));
     }
 
     public function tearDown()
     {
         parent::tearDown();
-        
+
         // File::put('', $this->app->instance('dynamic_routes_path'));
     }
 
@@ -53,7 +50,6 @@ class PagesControllerTest extends TestCase
         $this->assertEquals(403, $response->status());
     }
 
-
     public function test_pages_controller_allows_user_with_correct_permission_to_create_page()
     {
         $user = $this->createUserWith(['admin'], ['view-admin']);
@@ -77,6 +73,6 @@ class PagesControllerTest extends TestCase
 
     public function test_page_middleware_functions()
     {
-        $page = $this->createPage([ 'middleware' => ['web', 'auth'] ]);
+        $page = $this->createPage(['middleware' => ['web', 'auth']]);
     }
 }

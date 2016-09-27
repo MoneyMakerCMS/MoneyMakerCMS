@@ -1,11 +1,10 @@
 <?php
 
-use Carbon\Carbon;
 use App\Models\Pages\Page;
+use Carbon\Carbon;
 
 trait CreatePageTrait
 {
-
     protected function createPage($override = [])
     {
         $repository = app(\App\Repositories\Pages\PagesRepository::class);
@@ -23,12 +22,12 @@ trait CreatePageTrait
             'active'     => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
+
             'title'       => 'Default Homepage Title',
             'description' => 'Default Homepage Description',
             'keywords'    => '',
-            'robots'      => 'noindex,nofollow'
-        
+            'robots'      => 'noindex,nofollow',
+
         ], $override);
 
         return $repository->store(null, $data);
