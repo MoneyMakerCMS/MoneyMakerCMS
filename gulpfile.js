@@ -59,12 +59,16 @@ elixir(mix => {
     ], 'public/javascript/admin/app.js')
 });
 
+/*
+ * Version 
+ */
 elixir(mix => {
     mix.version([
         'stylesheets/admin/styles.css',
         'javascript/admin/app.js'
     ]);
 });
+
 /*
  * Fonts 
  */
