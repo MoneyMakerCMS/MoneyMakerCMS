@@ -9,7 +9,7 @@ trait CreateUsersWithRolesTrait
     {
         $this->user = factory(\App\Models\Access\User::class)->create();
 
-        return tap($this->user, function ($user) use ($roles,$permissions) {
+        return tap($this->user, function ($user) use ($roles, $permissions) {
             collect($roles)->each(function ($role) {
                 $this->user->assign($role);
             });
