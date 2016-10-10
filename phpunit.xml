@@ -19,6 +19,7 @@
         </whitelist>
     </filter>
     <php>
+        <env name="APP_KEY" value="base64:VtRfqVy0dR2sYgWiPuSlRDsDlh+GGADSz5ojVjczicE="/>
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="APP_ENV" value="testing"/>
