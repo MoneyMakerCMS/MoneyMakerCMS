@@ -175,6 +175,22 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FacadesServiceProvider::class,
+        App\Providers\BladeExtensionsServiceProvider::class,
+        App\Providers\RepositoriesServiceProvider::class,
+        App\Providers\ContentServiceProvider::class,
+        App\Providers\PagesServiceProvider::class,
+
+        /*
+        * MoneyMaker Providers
+        */
+        Silber\Bouncer\BouncerServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Rinvex\Repository\Providers\RepositoryServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
+        AdamWathan\BootForms\BootFormsServiceProvider::class,
 
     ],
 
@@ -222,7 +238,12 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-
+        'Form'         => Collective\Html\FormFacade::class,
+        'Html'         => Collective\Html\HtmlFacade::class,
+        'Bouncer'      => Silber\Bouncer\BouncerFacade::class,
+        'BootForm'     => AdamWathan\BootForms\Facades\BootForm::class,
+        'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Active'       => HieuLe\Active\Facades\Active::class,
     ],
 
 ];
