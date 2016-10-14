@@ -3,7 +3,6 @@
 use App\Models\Pages\Page;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Support\Facades\File;
 
 class PagesControllerTest extends TestCase
 {
@@ -12,15 +11,19 @@ class PagesControllerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-
+     
         $this->app->instance('dynamic_routes_path', base_path('tests/tmp/routes.php'));
+     
+        if (! file_exists(app('dynamic_routes_path'))) {
+            touch(app('dynamic_routes_path'));
+        }
     }
 
     public function tearDown()
     {
+        unlink(app('dynamic_routes_path'));
+        
         parent::tearDown();
-
-        // File::put('', $this->app->instance('dynamic_routes_path'));
     }
 
     public function test_pages_controller_redirects_unauthed_user()
