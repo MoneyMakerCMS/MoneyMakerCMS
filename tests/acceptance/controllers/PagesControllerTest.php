@@ -11,10 +11,10 @@ class PagesControllerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-     
+
         $this->app->instance('dynamic_routes_path', base_path('tests/tmp/routes.php'));
-     
-        if (! file_exists(app('dynamic_routes_path'))) {
+
+        if (!file_exists(app('dynamic_routes_path'))) {
             touch(app('dynamic_routes_path'));
         }
     }
@@ -22,7 +22,7 @@ class PagesControllerTest extends TestCase
     public function tearDown()
     {
         unlink(app('dynamic_routes_path'));
-        
+
         parent::tearDown();
     }
 
