@@ -3,8 +3,11 @@ const elixir = require('laravel-elixir');
 require('laravel-elixir-vue-2');
 
 elixir(mix => {
-
-    mix.sass([
+    mix
+    .browserSync({
+        proxy: 'moneymakercms.dev'
+    })
+    .sass([
         'admin/app.scss'
     ], './resources/assets/css/admin/styles.css')
 
