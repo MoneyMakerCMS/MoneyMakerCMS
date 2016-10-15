@@ -12883,30 +12883,28 @@ if(!String.prototype.slugify){String.prototype.slugify=function(e,t){var n=t&&t.
 
 var contentForm = new Vue({
     el: '#content-form',
-
     data: {
         database: null,
         type_select: null
     },
-    ready: function() {
+
+    mounted() {
         this.database = Content.database
-
-        $(this.$els.html).selectize({
+        $(this.$refs.html).selectize({
+            create: true,
+            sortField: 'text'
+        })
+        $(this.$refs.file).selectize({
             create: true,
             sortField: 'text'
         })
 
-        $(this.$els.file).selectize({
+        $(this.$refs.enabled).selectize({
             create: true,
             sortField: 'text'
         })
 
-        $(this.$els.enabled).selectize({
-            create: true,
-            sortField: 'text'
-        })
-
-        var select = $(this.$els.typeselect).selectize({
+        var select = $(this.$refs.typeselect).selectize({
             create: true,
             sortField: 'text'
         });
@@ -12920,9 +12918,9 @@ var contentForm = new Vue({
         toggleType: function(e) {
             var value = this.type_select.getValue();
             if (value === 'database') {
-                this.$set('database', true);
+                this.database = true
             } else {
-                this.$set('database', false);
+                this.database = false
             }
 
         }
