@@ -28,7 +28,7 @@
 			<div class="form-group @if($errors->has('type') ) has-error @endif">
 				<label class="col-xs-2 control-label">Type</label>
 				<div class="col-xs-9">
-					<select class="form-control select" name="type" id="type" v-el:typeselect>
+					<select class="form-control select" name="type" id="type" ref="typeselect">
 						<option @if(old('type', $content->type) === 'database') selected @endif value="database">Database</option>	
 						<option @if(old('type', $content->type) === 'file') selected @endif value="file">File</option>	
 					</select>
@@ -49,7 +49,7 @@
 			<div class="form-group @if($errors->has('file') ) has-error @endif" v-show="!database">
 				<label class="col-xs-2 control-label"></label>
 				<div class="col-xs-9">
-					<select class="form-control select" name="file" id="file" v-el:file>
+					<select class="form-control select" name="file" id="file" ref="file">
 						<option value="">---</option>
 						@foreach($files as $p)
 						<option value="{{{ $p->getRelativePathName() }}}" @if( old('file', $content->file) === $p->getRelativePathName() )  ) selected @endif> {{{ $p->getRelativePathName() }}}</option>
@@ -65,7 +65,7 @@
 				<label class="col-xs-2 control-label">Output</label>
 
 				<div class="col-xs-9">
-					<select class="form-control select" name="html" id="html" v-el:html>
+					<select class="form-control select" name="html" id="html" ref="html">
 						<option @if(old('html', $content->html)) selected @endif value="1">HTML/Markup</option>	
 						<option @if(old('html', ! $content->html)) selected @endif value="0">Plain Text</option>
 					</select>
@@ -79,7 +79,7 @@
 				<label class="col-xs-2 control-label" for="enabled">State</label>
 
 				<div class="col-xs-9">
-					<select class="form-control select" name="enabled" id="enabled" v-el:enabled>
+					<select class="form-control select" name="enabled" id="enabled" ref="enabled">
 						<option @if(old('enabled', 	$content->enabled)) selected @endif value="1">Published</option>	
 						<option @if(old('enabled', !$content->enabled)) selected @endif value="0">Draft</option>
 					</select>
