@@ -23,6 +23,7 @@
     "datatables.net-buttons": "^1.2.2",
     "datatables.net-buttons-bs": "^1.2.2",
     "font-awesome": "^4.6.3",
+    "laravel-elixir-browsersync-official": "^1.0.0",
     "selectize": "^0.12.1",
     "sweetalert": "^1.1.3"
   }
