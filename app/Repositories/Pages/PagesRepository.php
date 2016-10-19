@@ -71,10 +71,10 @@ class PagesRepository extends EloquentRepository
 
         $seo = !$id ? new Seo() : $page->seo;
 
-        $layouts = $this->manager->allFiles(config('pages.layouts.path'));
+        $layouts = $this->manager->allFiles(app('dynamic_layouts_path'));
 
-        $pages = $this->manager->allFiles(config('pages.pages.path'));
-
+        $pages = $this->manager->allFiles(app('dynamic_pages_path'));
+        
         $middleware = config('pages.middleware');
 
         return compact('page', 'seo', 'pages', 'layouts', 'middleware');
