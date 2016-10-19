@@ -29,9 +29,9 @@ class PagesServiceProvider extends ServiceProvider
         $this->app->singleton(PagesRepository::class);
 
         $this->app->instance('dynamic_pages_path', realpath(base_path('resources/views/frontend/pages')));
-        
+
         $this->app->instance('dynamic_layouts_path', realpath(base_path('resources/views/frontend/layouts')));
-        
+
         $this->app->instance('dynamic_routes_path', realpath(base_path('routes/Frontend/Dynamic/Dynamic.php')));
 
         $this->app->singleton(PagesAlteredEventHandler::class, function ($app) {

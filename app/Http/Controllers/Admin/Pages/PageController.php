@@ -76,7 +76,7 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    { 
+    {
         return view('admin.pages.form')->with($this->pages->getFormData($id));
     }
 
