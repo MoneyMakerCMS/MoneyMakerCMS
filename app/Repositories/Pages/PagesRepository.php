@@ -58,11 +58,11 @@ class PagesRepository extends EloquentRepository
 
         $return = !$id ? $this->create($data) : $this->update($id, $data);
 
-        list($status, $instance) = $return;
+        list($status, $page) = $return;
 
-        $instance->storeSeo($input);
+        $page->storeSeo($input);
 
-        return $instance;
+        return $page;
     }
 
     public function getFormData($id)
