@@ -14,7 +14,7 @@ return [
      * Default path for frontend pages
      */
     'pages' => [
-        
+
         'name' => 'frontend.pages',
     ],
 

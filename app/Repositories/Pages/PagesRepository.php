@@ -74,7 +74,7 @@ class PagesRepository extends EloquentRepository
         $layouts = $this->manager->allFiles(app('dynamic_layouts_path'));
 
         $pages = $this->manager->allFiles(app('dynamic_pages_path'));
-        
+
         $middleware = config('pages.middleware');
 
         return compact('page', 'seo', 'pages', 'layouts', 'middleware');
