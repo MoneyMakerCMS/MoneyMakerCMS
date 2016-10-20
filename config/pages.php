@@ -22,7 +22,6 @@ return [
      * Default middleware you can apply to a page
      */
     'middleware' => [
-        ['name' => 'Web (default)', 'value' => 'web'],
         ['name' => 'Logged in', 'value' => 'auth'],
         ['name' => 'View Admin', 'value' => 'access.routeNeedsPermission:view-backend'],
     ],
