@@ -4,7 +4,7 @@
 * Admin Routes
 */
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::group(['middleware' => ['permission:view-admin']], function () {
         require __DIR__.'/Admin/Dashboard/Dashboard.php';
     });
