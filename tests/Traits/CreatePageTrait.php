@@ -1,7 +1,7 @@
 <?php
 
-use Carbon\Carbon;
 use App\Models\Pages\Page;
+use Carbon\Carbon;
 
 trait CreatePageTrait
 {

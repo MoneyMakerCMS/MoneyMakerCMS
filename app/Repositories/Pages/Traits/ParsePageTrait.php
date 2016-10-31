@@ -24,8 +24,8 @@ trait ParsePageTrait
 
     protected function getFilePage($file)
     {
-        $path = config('pages.pages.name') . "/{$file}";
-                
+        $path = config('pages.pages.name')."/{$file}";
+
         $content = view($path)->with(compact('page'));
     }
 }
