@@ -86,6 +86,6 @@ class PagesControllerTest extends TestCase
 
     public function test_page_middleware_functions()
     {
-        $page = $this->createPage(['middleware' => ['web', 'auth']]);
+        $page = $this->createPage(['middleware' => ['auth']]);
     }
 }
