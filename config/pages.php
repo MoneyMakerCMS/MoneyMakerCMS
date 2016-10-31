@@ -6,7 +6,6 @@ return [
      * Default path for layouts
      */
     'layouts' => [
-
         'name' => 'frontend.layouts.',
     ],
 
@@ -14,7 +13,6 @@ return [
      * Default path for frontend pages
      */
     'pages' => [
-
         'name' => 'frontend.pages',
     ],
 
