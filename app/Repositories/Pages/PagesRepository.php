@@ -55,7 +55,7 @@ class PagesRepository extends EloquentRepository
     public function store($id, array $input)
     {
         $data = array_except($input, ['page_id', 'title', 'description', 'keywords', 'robots', 'image', 'files']);
-
+        
         $return = !$id ? $this->create($data) : $this->update($id, $data);
 
         list($status, $page) = $return;
@@ -85,6 +85,10 @@ class PagesRepository extends EloquentRepository
         if ($page = $this->where('uri', '=', $uri)->where('active', '=', 1)->findAll()->first()) {
             if ($page->type === 'database') {
                 $content = $this->parse($page->content);
+            }
+
+            if ($page->type === 'file') {
+                $content = $this->getFilePage($page->file);
             }
 
             return collect(['content' => $content, 'page' => $page]);
