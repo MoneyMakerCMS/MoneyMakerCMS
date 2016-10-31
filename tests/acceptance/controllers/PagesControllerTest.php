@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\Pages\Page;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Route;
 
 class PagesControllerTest extends TestCase
 {
@@ -80,8 +80,7 @@ class PagesControllerTest extends TestCase
 
         $content = view('pages.routes.routes')->with(['pages' => $pages]);
 
-        $this->assertEquals(File::get(app('dynamic_routes_path')) ,$content);
-
+        $this->assertEquals(File::get(app('dynamic_routes_path')), $content);
     }
 
     public function test_page_middleware_functions()

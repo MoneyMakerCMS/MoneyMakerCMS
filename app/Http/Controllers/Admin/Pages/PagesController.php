@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Pages;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use App\Repositories\Pages\PagesRepository;
-use App\Http\Requests\Admin\Pages\EditPageRequest;
 use App\Http\Requests\Admin\Pages\CreatePageRequest;
+use App\Http\Requests\Admin\Pages\EditPageRequest;
+use App\Repositories\Pages\PagesRepository;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class PagesController extends Controller
