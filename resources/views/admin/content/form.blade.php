@@ -15,12 +15,7 @@
 @section('content')
 <div class="box">
 	<div class="box-body">
-		
-
-
-
-		<div class="box-body">
-			{!! BootForm::openHorizontal(['sm' => [2, 10], 'lg' => [2, 10] ])->id('content-form') !!}
+			{!! BootForm::openHorizontal(['sm' => [2, 10], 'md' => [2, 10] ])->id('content-form') !!}
 			<input type="hidden" name="content_id" value="{{ $content->id ? : '' }}">
 			{!! BootForm::text('Name', 'name', old('name',$content->name))->attribute('data-slugify', '#slug') !!}
 			{!! BootForm::text('Slug', 'slug', old('slug',$content->slug))!!}
