@@ -19,7 +19,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 * Frontend Routes
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::group(['namespace' => 'Frontend'], function () {
+	Route::get('/', 'WelcomeController@index');
+
+});
 
 Auth::routes();
 
