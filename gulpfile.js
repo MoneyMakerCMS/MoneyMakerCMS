@@ -4,6 +4,7 @@ require('laravel-elixir-vue-2');
 
 elixir(mix => {
     mix
+    .phpUnit('phpunit.xml')
     .browserSync({
         proxy: 'moneymakercms.dev'
     })
