@@ -20,11 +20,11 @@ elixir(mix => {
         './node_modules/datatables.net-bs/css/dataTables.bootstrap.css'
     ], 'public/stylesheets/admin/styles.css')
 
-    .webpack([
+    .scripts([
         'admin/app.js',
     ], './resources/assets/js/admin/bundle.js')
 
-    .scripts([
+    .webpack([
         '../../../node_modules/vue/dist/vue.js',
         '../../../node_modules/vue-resource/dist/vue-resource.js',
         '../../../node_modules/selectize/dist/js/standalone/selectize.js',
@@ -39,7 +39,7 @@ elixir(mix => {
     ], 'public/stylesheets/admin/content.css')
 
 
-    .scripts([
+    .webpack([
         '../../../node_modules/vue/dist/vue.js',
         '../../../node_modules/vue-resource/dist/vue-resource.js',
         '../../../node_modules/selectize/dist/js/standalone/selectize.js',
