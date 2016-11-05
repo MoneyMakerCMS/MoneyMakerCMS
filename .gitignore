@@ -1,11 +1,7 @@
 /vendor
 /node_modules
-/resources/assets/js/admin/bundle.js
 /public/storage
 /public/build
-/public/javascript
-/public/stylesheets
-/.idea
 Homestead.yaml
 Homestead.json
 .env

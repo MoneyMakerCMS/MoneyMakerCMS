@@ -64,16 +64,6 @@ elixir(mix => {
 });
 
 /*
- * Version 
- */
-elixir(mix => {
-    mix.version([
-        'stylesheets/admin/styles.css',
-        'javascript/admin/app.js'
-    ]);
-});
-
-/*
  * Fonts 
  */
 elixir(mix => {
@@ -81,3 +71,14 @@ elixir(mix => {
         .copy('node_modules/font-awesome/fonts', 'public/fonts/font-awesome')
         .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts/bootstrap')
 });
+
+/*
+ * Version 
+ */
+// elixir(mix => {
+//     mix.version([
+//         'stylesheets/admin/styles.css',
+//         'javascript/admin/app.js'
+//     ]);
+// });
+
