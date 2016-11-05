@@ -58,11 +58,11 @@ class PagesRepository extends EloquentRepository
 
         $return = !$id ? $this->create($data) : $this->update($id, $data);
 
-        list($status, $instance) = $return;
+        list($status, $page) = $return;
 
-        $instance->storeSeo($input);
+        $page->storeSeo($input);
 
-        return $instance;
+        return $page;
     }
 
     public function getFormData($id)
@@ -71,9 +71,9 @@ class PagesRepository extends EloquentRepository
 
         $seo = !$id ? new Seo() : $page->seo;
 
-        $layouts = $this->manager->allFiles(config('pages.layouts.path'));
+        $layouts = $this->manager->allFiles(app('dynamic_layouts_path'));
 
-        $pages = $this->manager->allFiles(config('pages.pages.path'));
+        $pages = $this->manager->allFiles(app('dynamic_pages_path'));
 
         $middleware = config('pages.middleware');
 
@@ -83,9 +83,7 @@ class PagesRepository extends EloquentRepository
     public function render($uri)
     {
         if ($page = $this->where('uri', '=', $uri)->where('active', '=', 1)->findAll()->first()) {
-            if ($page->type === 'database') {
-                $content = $this->parse($page->content);
-            }
+            $content = $page->type === 'database' ? $this->parse($page->content) : $this->getFilePage($page->file);
 
             return collect(['content' => $content, 'page' => $page]);
         }

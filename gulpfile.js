@@ -3,8 +3,12 @@ const elixir = require('laravel-elixir');
 require('laravel-elixir-vue-2');
 
 elixir(mix => {
-
-    mix.sass([
+    mix
+    .phpUnit('phpunit.xml')
+    .browserSync({
+        proxy: 'moneymakercms.dev'
+    })
+    .sass([
         'admin/app.scss'
     ], './resources/assets/css/admin/styles.css')
 
@@ -16,11 +20,11 @@ elixir(mix => {
         './node_modules/datatables.net-bs/css/dataTables.bootstrap.css'
     ], 'public/stylesheets/admin/styles.css')
 
-    .webpack([
+    .scripts([
         'admin/app.js',
     ], './resources/assets/js/admin/bundle.js')
 
-    .scripts([
+    .webpack([
         '../../../node_modules/vue/dist/vue.js',
         '../../../node_modules/vue-resource/dist/vue-resource.js',
         '../../../node_modules/selectize/dist/js/standalone/selectize.js',
@@ -35,7 +39,7 @@ elixir(mix => {
     ], 'public/stylesheets/admin/content.css')
 
 
-    .scripts([
+    .webpack([
         '../../../node_modules/vue/dist/vue.js',
         '../../../node_modules/vue-resource/dist/vue-resource.js',
         '../../../node_modules/selectize/dist/js/standalone/selectize.js',
@@ -60,16 +64,6 @@ elixir(mix => {
 });
 
 /*
- * Version 
- */
-elixir(mix => {
-    mix.version([
-        'stylesheets/admin/styles.css',
-        'javascript/admin/app.js'
-    ]);
-});
-
-/*
  * Fonts 
  */
 elixir(mix => {
@@ -77,3 +71,14 @@ elixir(mix => {
         .copy('node_modules/font-awesome/fonts', 'public/fonts/font-awesome')
         .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts/bootstrap')
 });
+
+/*
+ * Version 
+ */
+// elixir(mix => {
+//     mix.version([
+//         'stylesheets/admin/styles.css',
+//         'javascript/admin/app.js'
+//     ]);
+// });
+

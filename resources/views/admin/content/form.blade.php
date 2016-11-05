@@ -15,20 +15,31 @@
 @section('content')
 <div class="box">
 	<div class="box-body">
-		
-
-
-
-		<div class="box-body">
-			{!! BootForm::openHorizontal(['sm' => [2, 10], 'lg' => [2, 10] ])->id('content-form') !!}
+		<form id="content-form" class="form-horizontal" method="POST">
+			{{csrf_field()}}
+			
 			<input type="hidden" name="content_id" value="{{ $content->id ? : '' }}">
-			{!! BootForm::text('Name', 'name', old('name',$content->name))->attribute('data-slugify', '#slug') !!}
-			{!! BootForm::text('Slug', 'slug', old('slug',$content->slug))!!}
+			
+			<div class="form-group @if($errors->has('name') ) has-error @endif">
+				<label class="col-xs-2 control-label" for="name">Content Name</label>
+				<div class="col-xs-9">
+					<input id="name" type="text" name="name" class="form-control" value="{{old('name', $content->name)}}" data-slugify="#slug">
+					<span class="help-block">{{{$errors->first('name')}}}</span>
+				</div>
+			</div>
+
+			<div class="form-group @if($errors->has('slug') ) has-error @endif">
+				<label class="col-xs-2 control-label" for="slug">Content Slug</label>
+				<div class="col-xs-9">
+					<input id="slug" type="text" name="slug" class="form-control" value="{{old('slug', $content->slug)}}">
+					<span class="help-block">{{{$errors->first('slug')}}}</span>
+				</div>
+			</div>
 
 			<div class="form-group @if($errors->has('type') ) has-error @endif">
 				<label class="col-xs-2 control-label">Type</label>
 				<div class="col-xs-9">
-					<select class="form-control select" name="type" id="type" v-el:typeselect>
+					<select class="form-control select" name="type" id="type" ref="typeselect">
 						<option @if(old('type', $content->type) === 'database') selected @endif value="database">Database</option>	
 						<option @if(old('type', $content->type) === 'file') selected @endif value="file">File</option>	
 					</select>
@@ -36,23 +47,14 @@
 
 				<span class="help-block">{{{$errors->first('type')}}}</span>
 			</div>
-
-			<div class="form-group @if($errors->has('value') ) has-error @endif"  v-show="database">
-			<label class="col-xs-2 control-label">Content</label>
+			
+			<div class="form-group @if($errors->has('file') ) has-error @endif" v-if="!database">
+				<label class="col-xs-2 control-label">File</label>
 				<div class="col-xs-9">
-					<textarea class="form-control" name="value" id="value" placeholder="{{{ trans('ninjaparade/content::model.general.value') }}}">{{{ old('value', $content->value) }}}</textarea>	        	
-				</div>
-
-				<span class="help-block">{{{$errors->first('value')}}}</span>
-			</div>
-
-			<div class="form-group @if($errors->has('file') ) has-error @endif" v-show="!database">
-				<label class="col-xs-2 control-label"></label>
-				<div class="col-xs-9">
-					<select class="form-control select" name="file" id="file" v-el:file>
+					<select class="form-control select" name="file" id="file" ref="filepicker">
 						<option value="">---</option>
 						@foreach($files as $p)
-						<option value="{{{ $p->getRelativePathName() }}}" @if( old('file', $content->file) === $p->getRelativePathName() )  ) selected @endif> {{{ $p->getRelativePathName() }}}</option>
+						<option value="{{{ $p->getRelativePathName() }}}" @if( old('file', $content->file) === $p->getRelativePathName() ) selected @endif> {{{ $p->getRelativePathName() }}}</option>
 						@endforeach
 					</select>
 				</div>
@@ -60,12 +62,21 @@
 				<span class="help-block">{{{$errors->first('file')}}}</span>
 			</div> 
 
+			<div class="form-group @if($errors->has('value') ) has-error @endif"  v-if="database">
+				<label class="col-xs-2 control-label">Content</label>
+				<div class="col-xs-9">
+					<textarea class="form-control" name="value" id="value" placeholder="{{{ trans('ninjaparade/content::model.general.value') }}}">{{{ old('value', $content->value) }}}</textarea>	        	
+				</div>
+
+				<span class="help-block">{{{$errors->first('value')}}}</span>
+			</div>
+
 			<div class="form-group @if($errors->has('html') ) has-error @endif">
 
 				<label class="col-xs-2 control-label">Output</label>
 
 				<div class="col-xs-9">
-					<select class="form-control select" name="html" id="html" v-el:html>
+					<select class="form-control select" name="html" id="html" ref="html">
 						<option @if(old('html', $content->html)) selected @endif value="1">HTML/Markup</option>	
 						<option @if(old('html', ! $content->html)) selected @endif value="0">Plain Text</option>
 					</select>
@@ -79,7 +90,7 @@
 				<label class="col-xs-2 control-label" for="enabled">State</label>
 
 				<div class="col-xs-9">
-					<select class="form-control select" name="enabled" id="enabled" v-el:enabled>
+					<select class="form-control select" name="enabled" id="enabled" ref="enabled">
 						<option @if(old('enabled', 	$content->enabled)) selected @endif value="1">Published</option>	
 						<option @if(old('enabled', !$content->enabled)) selected @endif value="0">Draft</option>
 					</select>
@@ -88,12 +99,14 @@
 				<span class="help-block">{{{$errors->first('html')}}}</span>
 			</div>
 
-
-			{!! BootForm::submit('Save Content') !!}
-			{!! BootForm::close() !!}
-		</div><!-- /.box-body -->
-
-	</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label" for="submit"></label>
+				<div class="col-xs-9">
+					<button class="btn btn-default">Save Content</button>
+				</div>
+			</div>
+		</form>
+	</div><!-- /.box-body -->
 </div>
 @stop
 

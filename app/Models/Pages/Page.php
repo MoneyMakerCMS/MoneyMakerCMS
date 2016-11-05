@@ -13,6 +13,8 @@ class Page extends Model
 
     protected $guarded = ['id'];
 
+    protected $attributes = ['middleware' => '', 'route' => ''];
+
     protected $adminRouteString = 'admin.pages.';
 
     /**

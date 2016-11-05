@@ -4,7 +4,7 @@
 * Admin Routes
 */
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::group(['middleware' => ['permission:view-admin']], function () {
         require __DIR__.'/Admin/Dashboard/Dashboard.php';
     });
@@ -19,7 +19,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web
 * Frontend Routes
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::group(['namespace' => 'Frontend'], function () {
+    Route::get('/', 'WelcomeController@index');
+});
 
 Auth::routes();
 

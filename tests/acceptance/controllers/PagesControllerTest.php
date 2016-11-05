@@ -3,6 +3,7 @@
 use App\Models\Pages\Page;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Route;
 
 class PagesControllerTest extends TestCase
 {
@@ -72,10 +73,18 @@ class PagesControllerTest extends TestCase
             'route'      => 'frontend.test-page',
             'type'       => 'database',
         ]);
+
+        $repository = app(\App\Repositories\Pages\PagesRepository::class);
+
+        $pages = $repository->findActive();
+
+        $content = view('pages.routes.routes')->with(['pages' => $pages]);
+
+        $this->assertEquals(File::get(app('dynamic_routes_path')), $content);
     }
 
     public function test_page_middleware_functions()
     {
-        $page = $this->createPage(['middleware' => ['web', 'auth']]);
+        $page = $this->createPage(['middleware' => ['auth']]);
     }
 }
