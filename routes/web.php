@@ -20,8 +20,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 */
 
 Route::group(['namespace' => 'Frontend'], function () {
-	Route::get('/', 'WelcomeController@index');
-
+    Route::get('/', 'WelcomeController@index');
 });
 
 Auth::routes();
