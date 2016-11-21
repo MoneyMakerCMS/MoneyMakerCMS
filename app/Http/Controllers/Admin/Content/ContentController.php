@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Content;
 
-use App\Models\Content\Content;
 use App\Http\Controllers\Controller;
-use Illuminate\Filesystem\Filesystem;
-use App\Repositories\Content\ContentRepository;
-use App\Http\Requests\Admin\Content\EditContentRequest;
 use App\Http\Requests\Admin\Content\CreateContentRequest;
+use App\Http\Requests\Admin\Content\EditContentRequest;
+use App\Models\Content\Content;
+use App\Repositories\Content\ContentRepository;
+use Illuminate\Filesystem\Filesystem;
 
 class ContentController extends Controller
 {
@@ -82,7 +82,7 @@ class ContentController extends Controller
     public function edit($id)
     {
         $this->authorize(Content::find($id));
-        
+
         $content = $this->content->find($id);
 
         $files = $this->manager->allFiles(config('content.file_path'));
