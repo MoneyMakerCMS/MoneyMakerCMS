@@ -61,6 +61,8 @@ class PagesControllerTest extends TestCase
         $user->allow('create', Page::class);
 
         $this->actingAs($user);
+
+        $this->visit('admin/pages/create');
     }
 
     public function test_created_page_route_exists()

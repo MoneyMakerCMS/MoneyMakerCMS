@@ -52,14 +52,19 @@ class AccessRolesPermissionsSeeder extends Seeder
         ]);
 
         foreach (config('core.entities') as $entity) {
+                $title = collect(explode('\\', $entity))->last();
+                Bouncer::ability()->create([
+                    'name'        => "manage-" . strtolower($title),
+                    'title'       => "Manage " . str_plural(ucfirst($title)),
+                ]);
             foreach (config('core.resource_nouns') as $resource_noun) {
-                $title = str_plural(collect(explode('\\', $entity))->last());
 
                 $ability_name = ucfirst($resource_noun);
 
+
                 Bouncer::ability()->create([
                     'name'        => $resource_noun,
-                    'title'       => "{$ability_name} {$title}",
+                    'title'       => "{$ability_name} ". str_plural($title),
                     'entity_type' => $entity,
                 ]);
             }

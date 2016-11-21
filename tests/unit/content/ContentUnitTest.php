@@ -50,7 +50,7 @@ class ContentUnitTest extends TestCase
     {
         $this->setUserActions();
 
-        $response = $this->call('POST', '/admin/content/create', [
+        $response = $this->post('/admin/content/create', [
             'name'       => 'App Name',
             'slug'       => 'app-name',
             'type'       => 'database',
@@ -77,7 +77,7 @@ class ContentUnitTest extends TestCase
     {
         $this->setUserActions();
 
-        $this->call('POST', '/admin/content/create', [
+        $this->post('/admin/content/create', [
             'name'       => 'App Name',
             'slug'       => 'app-name',
             'type'       => 'database',
@@ -88,7 +88,7 @@ class ContentUnitTest extends TestCase
             'created_at' => Carbon::now(),
         ]);
 
-        $response = $this->call('POST', '/admin/content/1/edit', [
+        $response = $this->post('/admin/content/1/edit', [
             'content_id' => 1,
             'name'       => 'New App Name',
             'slug'       => 'new-app-name',
@@ -157,7 +157,7 @@ class ContentUnitTest extends TestCase
     {
         $user = $this->createUserWith(['admin'], ['view-admin']);
         $user->allow('create', ContentModel::class);
-        $user->allow('edit', ContentModel::class);
+        $user->allow('update', ContentModel::class);
         $user->allow('view', ContentModel::class);
         $this->actingAs($user);
     }

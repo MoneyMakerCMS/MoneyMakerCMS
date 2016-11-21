@@ -19,3 +19,16 @@ $factory->define(\App\Models\Access\User::class, function (Faker\Generator $fake
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\App\Models\Content\Content::class, function (Faker\Generator $faker) {
+    return [
+        'name'       => 'App Name',
+        'slug'       => 'app-name',
+        'type'       => 'database',
+        'html'       => 1,
+        'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
+        'enabled'    => 1,
+        'updated_at' => \Carbon\Carbon::now(),
+        'created_at' => \Carbon\Carbon::now(),
+    ];
+});

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Content;
 
+use App\Models\Content\Content;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\CreateContentRequest;
-use App\Http\Requests\Admin\Content\EditContentRequest;
-use App\Repositories\Content\ContentRepository;
 use Illuminate\Filesystem\Filesystem;
+use App\Repositories\Content\ContentRepository;
+use App\Http\Requests\Admin\Content\EditContentRequest;
+use App\Http\Requests\Admin\Content\CreateContentRequest;
 
 class ContentController extends Controller
 {
@@ -19,8 +20,6 @@ class ContentController extends Controller
         $this->content = $content;
 
         $this->manager = $manager;
-
-        $this->authorizeResource($this->content->getModel());
     }
 
     /**
@@ -30,6 +29,8 @@ class ContentController extends Controller
      */
     public function index()
     {
+        $this->authorize('view', Content::class);
+
         return view('admin.content.index');
     }
 
@@ -45,6 +46,8 @@ class ContentController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Content::class);
+
         $content = $this->content->createModel();
 
         $files = $this->manager->allFiles(config('content.file_path'));
@@ -65,7 +68,8 @@ class ContentController extends Controller
 
         list($status, $content) = $store;
 
-        return redirect()->route('admin.content.edit', [$content->id]);
+        return redirect()->route('admin.content.edit', [$content->id])
+            ->with('flash', ['type' => 'success', 'message' => 'Content created']);
     }
 
     /**
@@ -77,6 +81,8 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize(Content::find($id));
+        
         $content = $this->content->find($id);
 
         $files = $this->manager->allFiles(config('content.file_path'));
@@ -94,11 +100,13 @@ class ContentController extends Controller
      */
     public function update(EditContentRequest $request, $id)
     {
+        $this->authorize('update', Content::find($id));
+
         $update = $this->content->update($id, $request->except(['files', 'content_id']));
 
         list($status, $content) = $update;
 
-        return redirect()->route('admin.content.edit', [$content->id]);
+        return redirect()->route('admin.content.edit', [$content->id])->with('flash', ['type' => 'success', 'message' => 'Content updated']);
     }
 
     /**

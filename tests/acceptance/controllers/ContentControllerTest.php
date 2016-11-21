@@ -60,31 +60,38 @@ class ContentControllerTest extends TestCase
 
     public function test_content_controller_allows_user_with_correct_permission_to_edit_content()
     {
+        $content = factory(Content::class)->create();
+
         $user = $this->createUserWith(['admin'], ['view-admin']);
 
-        $user->allow('edit', Content::class);
         $user->allow('update', Content::class);
 
-        $default = [
+        $this->actingAs($user);
+        
+        $this->visit('admin/content/'. $content->id . '/edit');
+        $content_id = $content->id;
+
+        $params = $this->updateParams(['_token' => csrf_token(), 'enabled' => 0 ,'html' => 1, 'content_id' => $content_id]);
+
+        $this->post('admin/content/'. $content_id . '/edit', $params);
+        
+        $updated_content = Content::find($content_id);
+
+        $this->assertEquals(0, $updated_content->enabled);
+        $this->assertEquals(1, $updated_content->html);
+    }
+
+    private function updateParams($overrides = [])
+    {
+        $defaults = [
             'name'       => 'App Name',
             'slug'       => 'app-name',
             'type'       => 'database',
             'html'       => 1,
             'value'      => '<b>MoneyMaker</b> CM<b>$</b>',
             'enabled'    => 1,
-            'updated_at' => Carbon::now(),
-            'created_at' => Carbon::now(),
         ];
 
-
-        DB::table('contents')->insert($default);
-
-        $content_id = DB::getPdo()->lastInsertId();
-
-        $this->actingAs($user);
-        $content = Content::find($content_id);
-        $this->assertTrue(Bouncer::allows('edit', Content::class));
-        $this->assertTrue(Bouncer::allows('edit', $content));
-        $this->assertTrue(Bouncer::allows('update', $content));
+        return array_merge($defaults, $overrides);
     }
 }

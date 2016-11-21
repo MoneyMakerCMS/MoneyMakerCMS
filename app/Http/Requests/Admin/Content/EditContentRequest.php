@@ -15,7 +15,7 @@ class EditContentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Bouncer::allows('edit', Content::class);
+        return Bouncer::allows('update', Content::class);
     }
 
     /**
