@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Content\Content;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -67,14 +66,14 @@ class ContentControllerTest extends TestCase
         $user->allow('update', Content::class);
 
         $this->actingAs($user);
-        
-        $this->visit('admin/content/'. $content->id . '/edit');
+
+        $this->visit('admin/content/'.$content->id.'/edit');
         $content_id = $content->id;
 
-        $params = $this->updateParams(['_token' => csrf_token(), 'enabled' => 0 ,'html' => 1, 'content_id' => $content_id]);
+        $params = $this->updateParams(['_token' => csrf_token(), 'enabled' => 0, 'html' => 1, 'content_id' => $content_id]);
 
-        $this->post('admin/content/'. $content_id . '/edit', $params);
-        
+        $this->post('admin/content/'.$content_id.'/edit', $params);
+
         $updated_content = Content::find($content_id);
 
         $this->assertEquals(0, $updated_content->enabled);
